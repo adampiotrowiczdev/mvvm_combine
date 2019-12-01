@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
+		3F30913F2394457E00829EF7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* ViewModel.swift */; };
 		3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5EC58239431720042C8AF /* AppDelegate.swift */; };
 		3FE5EC5B239431720042C8AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5EC5A239431720042C8AF /* SceneDelegate.swift */; };
 		3FE5EC5D239431720042C8AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5EC5C239431720042C8AF /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3091372394407700829EF7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		3F30913E2394457E00829EF7 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3FE5EC55239431720042C8AF /* mvvm_combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvvm_combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE5EC58239431720042C8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE5EC5A239431720042C8AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3091392394450A00829EF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F30913A2394451900829EF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FE5EC5E239431720042C8AF /* Main.storyboard */,
+				3FE5EC5C239431720042C8AF /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F30913B2394452500829EF7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3F30913E2394457E00829EF7 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		3FE5EC4C239431720042C8AF = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +113,7 @@
 				3FE5EC71239431770042C8AF /* mvvm_combineTests */,
 				3FE5EC7C239431770042C8AF /* mvvm_combineUITests */,
 				3FE5EC56239431720042C8AF /* Products */,
+				3F3091372394407700829EF7 /* Cartfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +130,15 @@
 		3FE5EC57239431720042C8AF /* mvvm_combine */ = {
 			isa = PBXGroup;
 			children = (
-				3FE5EC58239431720042C8AF /* AppDelegate.swift */,
+				3F3091392394450A00829EF7 /* Models */,
+				3F30913A2394451900829EF7 /* Views */,
+				3F30913B2394452500829EF7 /* ViewModels */,
 				3FE5EC5A239431720042C8AF /* SceneDelegate.swift */,
-				3FE5EC5C239431720042C8AF /* ViewController.swift */,
-				3FE5EC5E239431720042C8AF /* Main.storyboard */,
-				3FE5EC64239431770042C8AF /* Assets.xcassets */,
 				3FE5EC66239431770042C8AF /* LaunchScreen.storyboard */,
 				3FE5EC69239431770042C8AF /* Info.plist */,
 				3FE5EC61239431720042C8AF /* mvvm_combine.xcdatamodeld */,
+				3FE5EC64239431770042C8AF /* Assets.xcassets */,
+				3FE5EC58239431720042C8AF /* AppDelegate.swift */,
 			);
 			path = mvvm_combine;
 			sourceTree = "<group>";
@@ -236,6 +266,7 @@
 			files = (
 				3FE5EC68239431770042C8AF /* LaunchScreen.storyboard in Resources */,
 				3FE5EC65239431770042C8AF /* Assets.xcassets in Resources */,
+				3F3091382394407700829EF7 /* Cartfile in Resources */,
 				3FE5EC60239431720042C8AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F30913F2394457E00829EF7 /* ViewModel.swift in Sources */,
 				3FE5EC5D239431720042C8AF /* ViewController.swift in Sources */,
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
 				3FE5EC5B239431720042C8AF /* SceneDelegate.swift in Sources */,
