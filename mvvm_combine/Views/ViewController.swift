@@ -16,27 +16,34 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     private let picker = UIPickerView()
     private let beerTextField = UITextField(frame: CGRect(x: 10, y: 100, width: UIScreen.main.bounds.size.width - 20, height: 50))
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = R.color.tomato()
-        
-        button.setTitle("DRINK", for: .normal)
-        
+                        
+        addSubviews()
+        setUpConstraints()
+        configureViews()
+    }
+    
+    fileprivate func addSubviews() {
         view.addSubview(button)
         view.addSubview(beerTextField)
-        
+    }
+    
+    fileprivate func setUpConstraints() {
         button.snp.makeConstraints {
-            $0.center.equalTo(view)            
+            $0.center.equalTo(view)
         }
-        
+    }
+    
+    fileprivate func configureViews() {
         picker.dataSource = self
         picker.delegate = self
         
         beerTextField.inputView = picker
         beerTextField.attributedPlaceholder = NSAttributedString(string: "placeholder text",
-                                    attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                                 attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
         beerTextField.tintColor = .clear
         beerTextField.placeholder = "Choose your taste here"
         beerTextField.backgroundColor = R.color.tomato()
@@ -46,9 +53,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         beerTextField.textColor = .white
         
         button.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
+        button.setTitle("DRINK", for: .normal)
         
-        // Do any additional setup after loading the view.
     }
+    
+    
     
     @objc func beerTapped(_ sender : UIButton) {
         self.showToast(controller: self, message: "CHEERS", seconds: 1)
