@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class ViewController: UIViewController {
 
     var beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
 
     private let button = UIButton()
     private let picker = UIPickerView()
-    private let beerTextField = UITextField(frame: CGRect(x: 10, y: 100, width: UIScreen.main.bounds.size.width - 20, height: 50))
+    private let beerTextField = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +32,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     fileprivate func setUpConstraints() {
+        beerTextField.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            $0.width.equalTo(view)
+        }
+        
         button.snp.makeConstraints {
             $0.center.equalTo(view)
         }
     }
     
     fileprivate func configureViews() {
+        
         picker.dataSource = self
         picker.delegate = self
         
@@ -57,8 +63,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
-    
-    
     @objc func beerTapped(_ sender : UIButton) {
         self.showToast(controller: self, message: "CHEERS", seconds: 1)
     }
@@ -75,7 +79,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             alert.dismiss(animated: true)
         }
     }
-    ///picker
+
+}
+
+extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -90,18 +98,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
         beerTextField.text = beerArray[row]
-        self.view.endEditing(false)
+        self.view.endEditing(true)
     }
-    
-   
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
