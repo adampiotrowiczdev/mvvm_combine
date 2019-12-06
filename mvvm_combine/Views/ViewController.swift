@@ -11,7 +11,8 @@ import SnapKit
 class ViewController: UIViewController {
 
     var beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
-
+    var numberOfColumnsInPicker = 1
+    
     private let button = UIButton()
     private let picker = UIPickerView()
     private let beerTextField = UITextField()
@@ -85,7 +86,7 @@ class ViewController: UIViewController {
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return numberOfColumnsInPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
