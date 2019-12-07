@@ -10,79 +10,79 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    struct Consts {
+    private struct Consts {
         static let beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
         static let numberOfColumnsInPicker = 1
+        static let beerTextFieldFontSize : CGFloat = 20
+        static let beetTextFieldTopOffset : CGFloat = 50
+        static let toastShowingTime : Double = 50
     }
     
-    private let button = UIButton()
-    private let picker = UIPickerView()
-    private let beerTextField = UITextField()
+    private let drinkButton = FactoryView.drinkButton
+    private let beerPicker = FactoryView.beerPicker
+    private let beerTextField = FactoryView.beerTextField
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = R.color.tomato()
-                        
         addSubviews()
         setUpConstraints()
         configureViews()
     }
     
     fileprivate func addSubviews() {
-        view.addSubview(button)
+        view.addSubview(drinkButton)
         view.addSubview(beerTextField)
     }
     
     fileprivate func setUpConstraints() {
         beerTextField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(Consts.beetTextFieldTopOffset)
             $0.width.equalTo(view)
         }
         
-        button.snp.makeConstraints {
+        drinkButton.snp.makeConstraints {
             $0.center.equalTo(view)
         }
     }
     
     fileprivate func configureViews() {
-        
-        picker.dataSource = self
-        picker.delegate = self
-        
-        beerTextField.inputView = picker
-        beerTextField.attributedPlaceholder = NSAttributedString(string: "placeholder text",
-                                                                 attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
-        beerTextField.tintColor = .clear
-        beerTextField.placeholder = "Choose your taste here"
-        beerTextField.backgroundColor = R.color.tomato()
-        beerTextField.borderStyle = .roundedRect
-        beerTextField.font = UIFont.systemFont(ofSize: 20)
-        beerTextField.textAlignment = .center
-        beerTextField.textColor = .white
-        
-        button.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
-        button.setTitle("DRINK", for: .normal)
-        
+        view.backgroundColor = R.color.tomato()
+        beerPicker.dataSource = self
+        beerPicker.delegate = self
+        beerTextField.inputView = beerPicker
+        drinkButton.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
     }
     
     @objc func beerTapped(_ sender : UIButton) {
-        self.showToast(controller: self, message: "CHEERS", seconds: 1)
+        Toast().show(controller: self, message: "CHEERS", seconds: Consts.toastShowingTime)
     }
     
-    func showToast(controller: UIViewController, message : String, seconds: Double) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.view.backgroundColor = UIColor.black
-        alert.view.alpha = 0.6
-        alert.view.layer.cornerRadius = 15
-
-        controller.present(alert, animated: true)
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            alert.dismiss(animated: true)
+    private struct FactoryView {
+        static var drinkButton : UIButton {
+            let button = UIButton()
+            button.setTitle("DRINK", for: .normal)
+            return button
+        }
+        
+        static var beerPicker : UIPickerView {
+            let picker = UIPickerView()
+            return picker
+        }
+        
+        static var beerTextField: UITextField {
+            let textField = UITextField()
+            textField.tintColor = .clear
+            textField.backgroundColor = R.color.tomato()
+            textField.borderStyle = .roundedRect
+            textField.font = UIFont.systemFont(ofSize: Consts.beerTextFieldFontSize)
+            textField.textAlignment = .center
+            textField.textColor = .white
+            textField.attributedPlaceholder = NSAttributedString(string: "Choose your taste here",
+            attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
+            return textField
         }
     }
-
+    
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -104,3 +104,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         self.view.endEditing(true)
     }
 }
+
+
+
+
