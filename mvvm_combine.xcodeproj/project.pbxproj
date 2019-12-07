@@ -24,6 +24,7 @@
 		3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECC5572395BBDC000567D0 /* R.generated.swift */; };
 		3FECC55A2395BD71000567D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECC5592395BD71000567D0 /* SceneDelegate.swift */; };
 		3FECC5602395CB74000567D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FECC55E2395CB74000567D0 /* LaunchScreen.storyboard */; };
+		CE633D47239C51B400C7612D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633D46239C51B400C7612D /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		3FECC5572395BBDC000567D0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3FECC5592395BD71000567D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FECC55F2395CB74000567D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE633D46239C51B400C7612D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		3FE5EC57239431720042C8AF /* mvvm_combine */ = {
 			isa = PBXGroup;
 			children = (
+				CE633D45239C50B000C7612D /* Utils */,
 				3F3091392394450A00829EF7 /* Models */,
 				3F30913A2394451900829EF7 /* Views */,
 				3F30913B2394452500829EF7 /* ViewModels */,
@@ -198,6 +201,14 @@
 				3FECC5492395B25E000567D0 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE633D45239C50B000C7612D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE633D46239C51B400C7612D /* Toast.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
 				3FECC55A2395BD71000567D0 /* SceneDelegate.swift in Sources */,
+				CE633D47239C51B400C7612D /* Toast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
