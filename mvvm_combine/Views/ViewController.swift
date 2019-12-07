@@ -9,9 +9,11 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
-    var beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
-    var numberOfColumnsInPicker = 1
+    
+    struct Consts {
+        static let beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
+        static let numberOfColumnsInPicker = 1
+    }
     
     private let button = UIButton()
     private let picker = UIPickerView()
@@ -86,19 +88,19 @@ class ViewController: UIViewController {
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return numberOfColumnsInPicker
+        return Consts.numberOfColumnsInPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return beerArray.count
+        return Consts.beerArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int , forComponent component: Int) -> String? {
-        return beerArray[row]
+        return Consts.beerArray[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
-        beerTextField.text = beerArray[row]
+        beerTextField.text = Consts.beerArray[row]
         self.view.endEditing(true)
     }
 }
