@@ -13,15 +13,12 @@ class BeerViewModel : BaseViewModel {
         static let beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
     }
     
-    let subject = PassthroughSubject<[String], Never>()
+    let beerNames = PassthroughSubject<[String], Never>()
     
     required init() {
-        
     }
-    
-    var beerNames = [String]()
-    
-    func fetchBeerNames() -> [String] {
-        beerNames = Consts.beerArray
+        
+    func fetchBeerNames() {
+        beerNames.send(["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"])
     }
 }

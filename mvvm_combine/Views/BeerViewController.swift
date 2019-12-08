@@ -7,19 +7,21 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class BeerViewController: BaseViewController<BeerViewModel> {
     
     private struct Consts {
-        static let numberOfColumnsInPicker = 1
         static let beerTextFieldFontSize : CGFloat = 20
         static let beetTextFieldTopOffset : CGFloat = 50
-        static let toastShowingTime : Double = 50
+        static let toastShowingTime : Double = 1
     }
     
     private let drinkButton = FactoryView.drinkButton
     private let beerPicker = FactoryView.beerPicker
     private let beerTextField = FactoryView.beerTextField
+    private var pickerDataSubscriber : AnyCancellable?
+    private var pickerSelectedValueSubscriber : AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,12 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         setUpConstraints()
         configureViews()
         bindUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchBeerNames()
     }
     
     private func addSubviews() {
@@ -47,15 +55,18 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
     private func configureViews() {
         view.backgroundColor = R.color.tomato()
-        beerPicker.dataSource = self
-        beerPicker.delegate = self
         beerTextField.inputView = beerPicker
         drinkButton.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
-        beerPicker.dataSource = 
-        viewModel.subject.subscribe(beerPicker.dataSource )
+        pickerDataSubscriber = viewModel.beerNames.sink( receiveValue: { value in
+            self.beerPicker.pickerData = value
+        })
+        pickerSelectedValueSubscriber = beerPicker.selectedValue.sink(receiveValue: { value in
+            self.beerTextField.text = value
+            self.view.endEditing(true)
+        })
     }
     
     @objc func beerTapped(_ sender : UIButton) {
@@ -69,8 +80,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             return button
         }
         
-        static var beerPicker : UIPickerView {
-            let picker = UIPickerView()
+        static var beerPicker : CombinePickerView {
+            let picker = CombinePickerView()
             return picker
         }
         
@@ -90,25 +101,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
 }
 
-extension BeerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return Consts.numberOfColumnsInPicker
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Consts.beerArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int , forComponent component: Int) -> String? {
-        return Consts.beerArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
-        beerTextField.text = Consts.beerArray[row]
-        self.view.endEditing(true)
-    }
-}
+
 
 
 
