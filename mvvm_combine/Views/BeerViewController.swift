@@ -8,10 +8,9 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class BeerViewController: BaseViewController<BeerViewModel> {
     
     private struct Consts {
-        static let beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
         static let numberOfColumnsInPicker = 1
         static let beerTextFieldFontSize : CGFloat = 20
         static let beetTextFieldTopOffset : CGFloat = 50
@@ -27,14 +26,15 @@ class ViewController: UIViewController {
         addSubviews()
         setUpConstraints()
         configureViews()
+        bindUI()
     }
     
-    fileprivate func addSubviews() {
+    private func addSubviews() {
         view.addSubview(drinkButton)
         view.addSubview(beerTextField)
     }
     
-    fileprivate func setUpConstraints() {
+    private func setUpConstraints() {
         beerTextField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(Consts.beetTextFieldTopOffset)
             $0.width.equalTo(view)
@@ -45,12 +45,17 @@ class ViewController: UIViewController {
         }
     }
     
-    fileprivate func configureViews() {
+    private func configureViews() {
         view.backgroundColor = R.color.tomato()
         beerPicker.dataSource = self
         beerPicker.delegate = self
         beerTextField.inputView = beerPicker
         drinkButton.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
+    }
+    
+    private func bindUI() {
+        beerPicker.dataSource = 
+        viewModel.subject.subscribe(beerPicker.dataSource )
     }
     
     @objc func beerTapped(_ sender : UIButton) {
@@ -85,7 +90,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension BeerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Consts.numberOfColumnsInPicker
