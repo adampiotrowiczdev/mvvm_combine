@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
 		3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* BeerViewModel.swift */; };
+		3FBAD63B239D943F00918D30 /* CombinePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBAD63A239D943F00918D30 /* CombinePickerView.swift */; };
 		3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5EC58239431720042C8AF /* AppDelegate.swift */; };
 		3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5EC61239431720042C8AF /* mvvm_combine.xcdatamodeld */; };
 		3FE5EC65239431770042C8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE5EC64239431770042C8AF /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		3F3091372394407700829EF7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		3F30913E2394457E00829EF7 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModel.swift; sourceTree = "<group>"; };
+		3FBAD63A239D943F00918D30 /* CombinePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePickerView.swift; sourceTree = "<group>"; };
 		3FE5EC55239431720042C8AF /* mvvm_combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mvvm_combine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE5EC58239431720042C8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE5EC62239431720042C8AF /* mvvm_combine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mvvm_combine.xcdatamodel; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				CE633D46239C51B400C7612D /* Toast.swift */,
+				3FBAD63A239D943F00918D30 /* CombinePickerView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FBAD63B239D943F00918D30 /* CombinePickerView.swift in Sources */,
 				3FECC5522395B44B000567D0 /* BeerViewController.swift in Sources */,
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
