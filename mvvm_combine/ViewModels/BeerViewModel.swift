@@ -10,15 +10,19 @@ import Combine
 class BeerViewModel : BaseViewModel {
     
     private struct Consts {
-        static let beerArray = ["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"]
+        static let beers = [BeerModel(name: "Komes", description: "IPA"),
+                            BeerModel(name: "Tyskie", description: "Lager"),
+                            BeerModel(name: "Łomża", description: "Lager"),
+                            BeerModel(name: "Żywiec Białe", description: "Pszeniczne"),
+                            BeerModel(name: "Birra Moretti", description: "Italiano birra")]
     }
     
-    let beerNames = PassthroughSubject<[String], Never>()
+    let beerNames = PassthroughSubject<[BeerModel], Never>()
     
     required init() {
     }
         
     func fetchBeerNames() {
-        beerNames.send(["Komes","Tyskie","Łomża","Żywiec","Birra Moretti"])
+        beerNames.send(Consts.beers)
     }
 }
