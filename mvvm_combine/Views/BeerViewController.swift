@@ -33,8 +33,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         viewModel.fetchBeerNames()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func addSubviews() {
@@ -56,7 +62,6 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     private func configureViews() {
         view.backgroundColor = R.color.tomato()
         beerTextField.inputView = beerPicker
-        drinkButton.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
@@ -68,15 +73,19 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             self.view.endEditing(true)
         })
     }
-    
-    @objc func beerTapped(_ sender : UIButton) {
-        Toast().show(controller: self, message: "CHEERS", seconds: Consts.toastShowingTime)
+    @objc func pushNextScreenButtonAction (_sender : UIButton) {
+        let secondVC = SecondViewController()
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
+   // @objc func beerTapped(_ sender : UIButton) {
+     //   Toast().show(controller: self, message: "CHEERS", seconds: Consts.toastShowingTime)
+    //}
     
     private struct FactoryView {
         static var drinkButton : UIButton {
             let button = UIButton()
             button.setTitle("DRINK", for: .normal)
+            button.addTarget(self, action: #selector(pushNextScreenButtonAction), for: .touchUpInside)
             return button
         }
         
@@ -100,9 +109,3 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
 }
-
-
-
-
-
-
