@@ -8,11 +8,15 @@
 import UIKit
 import Combine
 
-class CombinePickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    private struct Consts {
-        static let numberOfColumnsInPicker = 1
-    }
+protocol CombinePickerViewDataType {
+    var rowName: String { get }
+}
+
+private struct Consts {
+    static let numberOfColumnsInPicker = 1
+}
+
+class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -24,14 +28,14 @@ class CombinePickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
         fatalError("init(coder:) has not been implemented")
     }
     
-    var pickerData : [String] = [String]() {
+    var pickerData : [T] = [T]() {
         didSet {
             self.reloadAllComponents()
         }
     }
     
     let selectedValue = PassthroughSubject<String, Never>()
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Consts.numberOfColumnsInPicker
     }
@@ -41,11 +45,12 @@ class CombinePickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int , forComponent component: Int) -> String? {
-        return pickerData[row]
+        return pickerData[row].rowName
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
-        selectedValue.send(pickerData[row])
+        selectedValue.send(pickerData[row].rowName)
     }
-    
 }
+    
+

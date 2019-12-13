@@ -80,8 +80,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             return button
         }
         
-        static var beerPicker : CombinePickerView {
-            let picker = CombinePickerView()
+        static var beerPicker : CombinePickerView<BeerModel> {
+            let picker = CombinePickerView<BeerModel>()
             return picker
         }
         
