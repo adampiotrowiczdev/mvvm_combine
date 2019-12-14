@@ -33,8 +33,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         viewModel.fetchBeerNames()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func addSubviews() {
@@ -70,7 +76,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     @objc func beerTapped(_ sender : UIButton) {
-        Toast().show(controller: self, message: "CHEERS", seconds: Consts.toastShowingTime)
+        let secondVC = SecondViewController()
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     private struct FactoryView {

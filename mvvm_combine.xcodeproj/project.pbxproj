@@ -25,6 +25,8 @@
 		3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECC5572395BBDC000567D0 /* R.generated.swift */; };
 		3FECC55A2395BD71000567D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FECC5592395BD71000567D0 /* SceneDelegate.swift */; };
 		3FECC5602395CB74000567D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FECC55E2395CB74000567D0 /* LaunchScreen.storyboard */; };
+		8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D534C23A430E800F74278 /* BeerModel.swift */; };
+		8C3D534F23A4312000F74278 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D534E23A4312000F74278 /* SecondViewController.swift */; };
 		CE633D47239C51B400C7612D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633D46239C51B400C7612D /* Toast.swift */; };
 		CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */; };
 		CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */; };
@@ -85,6 +87,8 @@
 		3FECC5572395BBDC000567D0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3FECC5592395BD71000567D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FECC55F2395CB74000567D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C3D534C23A430E800F74278 /* BeerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
+		8C3D534E23A4312000F74278 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CE633D46239C51B400C7612D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		3F3091392394450A00829EF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8C3D534C23A430E800F74278 /* BeerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		3F30913A2394451900829EF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C3D534E23A4312000F74278 /* SecondViewController.swift */,
 				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
 			);
 			path = Views;
@@ -402,7 +408,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3D534F23A4312000F74278 /* SecondViewController.swift in Sources */,
 				3FBAD63B239D943F00918D30 /* CombinePickerView.swift in Sources */,
+				8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */,
 				3FECC5522395B44B000567D0 /* BeerViewController.swift in Sources */,
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
@@ -577,7 +585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P9XV8R599Y;
+				DEVELOPMENT_TEAM = UM74TVYY9W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -587,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
