@@ -17,9 +17,13 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         static let toastShowingTime : Double = 1
     }
     
+
+    var beerModel : BeerModel = BeerModel(name: "piwo", description: "wiedz ze bylo dobre")
+    
     private let drinkButton = FactoryView.drinkButton
     private let beerPicker = FactoryView.beerPicker
     private let beerTextField = FactoryView.beerTextField
+    
     private var pickerDataSubscriber : AnyCancellable?
     private var pickerSelectedValueSubscriber : AnyCancellable?
     
@@ -32,17 +36,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        
-        viewModel.fetchBeerNames()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
+         super.viewWillAppear(animated)
+         viewModel.fetchBeerNames()
+     }
+     
+     override func viewWillDisappear(_ animated: Bool) {
+         super.viewWillDisappear(animated)
+     }
+
     private func addSubviews() {
         view.addSubview(drinkButton)
         view.addSubview(beerTextField)
@@ -60,9 +61,10 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     private func configureViews() {
+        isNavigationBarHidden = true
         view.backgroundColor = R.color.tomato()
         beerTextField.inputView = beerPicker
-        drinkButton.addTarget(self, action:#selector(beerTapped), for: .touchUpInside)
+        drinkButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
@@ -70,14 +72,17 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             self.beerPicker.pickerData = value
         })
         pickerSelectedValueSubscriber = beerPicker.selectedValue.sink(receiveValue: { value in
-            self.beerTextField.text = value
+            self.beerTextField.text = value.name
+            self.beerModel = value
             self.view.endEditing(true)
         })
     }
     
-    @objc func beerTapped(_ sender : UIButton) {
-        let secondVC = SecondViewController()
-        self.navigationController?.pushViewController(secondVC, animated: true)
+    @objc func drinkTapped(_ sender : UIButton) {
+        let descriptionViewModel = DescriptionViewModel(parameter: beerModel)
+        guard let descViewModel = descriptionViewModel else { return }
+        let descriptionViewController = DescriptionViewController(viewModel: descViewModel)
+        self.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
     
     private struct FactoryView {
@@ -107,9 +112,3 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
 }
-
-
-
-
-
-

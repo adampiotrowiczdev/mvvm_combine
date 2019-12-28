@@ -7,5 +7,19 @@
 
 class BaseViewModel {
     
-    required init() { }
+    required init?() { }
+}
+
+class BaseViewModelWithParameter<T> : BaseViewModel {
+    
+    var parameter: T
+    
+    required init?(parameter: T) {
+        self.parameter = parameter
+        super.init()
+    }
+    
+    required init?() {
+        return nil
+    }
 }

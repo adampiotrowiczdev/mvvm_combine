@@ -9,5 +9,21 @@ import UIKit
 
 class BaseViewController<T:BaseViewModel>: UIViewController {
 
-    var viewModel: T = T()
+    init(viewModel: T = T()!) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
+    
+    var viewModel: T
+    
+    var isNavigationBarHidden: Bool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: animated)
+    }
 }

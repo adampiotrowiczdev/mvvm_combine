@@ -34,7 +34,7 @@ class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerView
         }
     }
     
-    let selectedValue = PassthroughSubject<String, Never>()
+    let selectedValue = PassthroughSubject<T, Never>()
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Consts.numberOfColumnsInPicker
@@ -49,7 +49,7 @@ class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
-        selectedValue.send(pickerData[row].rowName)
+        selectedValue.send(pickerData[row])
     }
 }
     

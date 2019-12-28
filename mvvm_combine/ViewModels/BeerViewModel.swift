@@ -20,6 +20,7 @@ class BeerViewModel : BaseViewModel {
     let beerNames = PassthroughSubject<[BeerModel], Never>()
     
     required init() {
+        super.init()!
     }
         
     func fetchBeerNames() {
