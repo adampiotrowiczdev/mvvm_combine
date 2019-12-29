@@ -17,9 +17,6 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         static let toastShowingTime : Double = 1
     }
     
-
-    var beerModel : BeerModel = BeerModel(name: "piwo", description: "wiedz ze bylo dobre")
-    
     private let drinkButton = FactoryView.drinkButton
     private let beerPicker = FactoryView.beerPicker
     private let beerTextField = FactoryView.beerTextField
@@ -72,17 +69,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             self.beerPicker.pickerData = value
         })
         pickerSelectedValueSubscriber = beerPicker.selectedValue.sink(receiveValue: { value in
+            self.viewModel.selectedBeer = value
             self.beerTextField.text = value.name
-            self.beerModel = value
             self.view.endEditing(true)
         })
     }
     
     @objc func drinkTapped(_ sender : UIButton) {
-        let descriptionViewModel = DescriptionViewModel(parameter: beerModel)
-        guard let descViewModel = descriptionViewModel else { return }
-        let descriptionViewController = DescriptionViewController(viewModel: descViewModel)
-        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        viewModel.navigateToDescriptionView(viewController: self)
     }
     
     private struct FactoryView {

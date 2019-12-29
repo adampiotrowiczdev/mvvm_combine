@@ -10,25 +10,41 @@ import UIKit
 
 class DescriptionViewController: BaseViewController<DescriptionViewModel> {
     
-    var textField = UITextField()
+//    private struct Consts {
+//        static let beerTextFieldFontSize : CGFloat = 20
+//        static let beetTextFieldTopOffset : CGFloat = 50
+//        static let toastShowingTime : Double = 1
+//    }
+    
+    private let desctriptionTextField = FactoryView.descriptionTextField
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isNavigationBarHidden = false
         self.view.backgroundColor = .systemOrange
-           addSubviews()
-           setUpConstraints()
-            textField.text = viewModel.parameter.description
-       }
-
-       private func addSubviews() {
-           view.addSubview(textField)
-       }
-       
-       private func setUpConstraints() {
-           textField.snp.makeConstraints {
-               $0.top.equalTo(view.safeAreaLayoutGuide).offset(5)
-               $0.width.equalTo(view)
-           }
-       }
+        addSubviews()
+        setUpConstraints()
+        desctriptionTextField.text = viewModel.parameter.description
+    }
+    
+    private func addSubviews() {
+        view.addSubview(desctriptionTextField)
+    }
+    
+    private func setUpConstraints() {
+        desctriptionTextField.snp.makeConstraints {
+            $0.center.equalTo(view.center)
+        }
+    }
+    
+    private struct FactoryView {
+                
+        static var descriptionTextField: UITextField {
+            let textField = UITextField()
+            textField.tintColor = .clear
+            textField.backgroundColor = R.color.tomato()
+            textField.borderStyle = .roundedRect
+            textField.isUserInteractionEnabled = false
+            return textField
+        }
+    }
 }

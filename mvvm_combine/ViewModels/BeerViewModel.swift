@@ -6,6 +6,7 @@
 //
 
 import Combine
+import UIKit
 
 class BeerViewModel : BaseViewModel {
     
@@ -18,12 +19,20 @@ class BeerViewModel : BaseViewModel {
     }
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
+    var selectedBeer: BeerModel?
     
     required init() {
-        super.init()!
+        super.init()
     }
         
     func fetchBeerNames() {
         beerNames.send(Consts.beers)
+    }
+    
+    func navigateToDescriptionView(viewController: UIViewController) {
+        guard let parameter = selectedBeer else { return }
+        let descriptionViewModel = DescriptionViewModel(parameter)
+        let descriptionViewController = DescriptionViewController(descriptionViewModel)
+        viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
 }

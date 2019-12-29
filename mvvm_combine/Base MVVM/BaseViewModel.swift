@@ -6,20 +6,33 @@
 //
 
 class BaseViewModel {
+    var viewModelType : BaseViewModel.Type
+    required init() {
+        viewModelType = type(of: self)
+    }
     
-    required init?() { }
+    func viewDidLoad() { }
+    
+    func viewWillAppear() { }
+       
+    func viewDidAppear() { }
+       
+    func viewWillDisappear() { }
+       
+    func viewDidDisappear() { }
 }
 
 class BaseViewModelWithParameter<T> : BaseViewModel {
     
     var parameter: T
     
-    required init?(parameter: T) {
+    required init(_ parameter: T) {
         self.parameter = parameter
         super.init()
+        viewModelType = type(of: self)
     }
     
-    required init?() {
-        return nil
+    required init() {
+        fatalError("init() has not been implemented")
     }
 }
