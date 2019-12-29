@@ -2,7 +2,7 @@
 //  CombinePickerView.swift
 //  mvvm_combine
 //
-//  Created by Syner Media on 08/12/2019.
+//  Created by apiotrowicz on 08/12/2019.
 //
 
 import UIKit
@@ -34,7 +34,7 @@ class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerView
         }
     }
     
-    let selectedValue = PassthroughSubject<T, Never>()
+    let selectedValue = CurrentValueSubject<T?, Never>(nil)
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Consts.numberOfColumnsInPicker

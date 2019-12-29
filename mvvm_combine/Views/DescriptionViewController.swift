@@ -5,16 +5,10 @@
 //  Created by Jakub Andruszak on 10/12/2019.
 //
 
-import Foundation
 import UIKit
+import Combine
 
 class DescriptionViewController: BaseViewController<DescriptionViewModel> {
-    
-//    private struct Consts {
-//        static let beerTextFieldFontSize : CGFloat = 20
-//        static let beetTextFieldTopOffset : CGFloat = 50
-//        static let toastShowingTime : Double = 1
-//    }
     
     private let desctriptionTextField = FactoryView.descriptionTextField
     
@@ -23,7 +17,8 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
         self.view.backgroundColor = .systemOrange
         addSubviews()
         setUpConstraints()
-        desctriptionTextField.text = viewModel.parameter.description
+        configureViews()
+        bindUI()
     }
     
     private func addSubviews() {
@@ -36,12 +31,22 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
         }
     }
     
+    private func configureViews() {
+        view.backgroundColor = R.color.gray()
+    }
+    
+    private func bindUI() {
+        viewModel.parameterSubject.sink { value in
+            self.desctriptionTextField.text = value?.description
+        }.store(in: &cancelBag)
+    }
+    
     private struct FactoryView {
-                
+        
         static var descriptionTextField: UITextField {
             let textField = UITextField()
+            textField.textAlignment = .center
             textField.tintColor = .clear
-            textField.backgroundColor = R.color.tomato()
             textField.borderStyle = .roundedRect
             textField.isUserInteractionEnabled = false
             return textField

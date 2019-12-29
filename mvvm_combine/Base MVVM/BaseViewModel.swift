@@ -5,6 +5,8 @@
 //  Created by apiotrowicz on 07/12/2019.
 //
 
+import Combine
+
 class BaseViewModel {
     var viewModelType : BaseViewModel.Type
     required init() {
@@ -24,10 +26,10 @@ class BaseViewModel {
 
 class BaseViewModelWithParameter<T> : BaseViewModel {
     
-    var parameter: T
+    var parameterSubject = CurrentValueSubject<T?, Never>(nil)
     
     required init(_ parameter: T) {
-        self.parameter = parameter
+        self.parameterSubject.send(parameter)
         super.init()
         viewModelType = type(of: self)
     }

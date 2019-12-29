@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class BaseViewController<T:BaseViewModel>: UIViewController {
 
@@ -19,7 +20,7 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     }
     
     var viewModel: T
-    
+    var cancelBag = Set<AnyCancellable>()
     var isNavigationBarHidden: Bool = false
         
     override func viewDidLoad() {
