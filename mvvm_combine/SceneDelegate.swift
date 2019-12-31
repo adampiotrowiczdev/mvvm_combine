@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  mvvm_combine
 //
-//  Created by Syner Media on 01/12/2019.
+//  Created by apiotrowicz on 01/12/2019.
 //
 
 import UIKit
@@ -10,7 +10,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = BeerViewController()
+        window?.rootViewController = UINavigationController(rootViewController: BeerViewController())
         window?.makeKeyAndVisible()
     }
 

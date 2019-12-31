@@ -2,7 +2,7 @@
 //  mvvm_combineUITests.swift
 //  mvvm_combineUITests
 //
-//  Created by Syner Media on 01/12/2019.
+//  Created by apiotrowicz on 01/12/2019.
 //
 
 import XCTest

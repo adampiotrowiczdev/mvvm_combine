@@ -105,13 +105,35 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
   struct color {
-    /// Color `Tomato`.
-    static let tomato = Rswift.ColorResource(bundle: R.hostingBundle, name: "Tomato")
+    /// Color `gray`.
+    static let gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "gray")
+    /// Color `light_gray`.
+    static let light_gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "light_gray")
+    /// Color `tomato`.
+    static let tomato = Rswift.ColorResource(bundle: R.hostingBundle, name: "tomato")
 
     #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "Tomato", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "gray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "light_gray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func light_gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.light_gray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "tomato", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func tomato(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
@@ -132,6 +154,21 @@ struct R: Rswift.Validatable {
       let fileResource = R.file.cartfile
       return fileResource.bundle.url(forResource: fileResource)
     }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `beer_cap`.
+    static let beer_cap = Rswift.ImageResource(bundle: R.hostingBundle, name: "beer_cap")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "beer_cap", bundle: ..., traitCollection: ...)`
+    static func beer_cap(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.beer_cap, compatibleWith: traitCollection)
+    }
+    #endif
 
     fileprivate init() {}
   }
@@ -172,6 +209,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "beer_cap", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'beer_cap' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

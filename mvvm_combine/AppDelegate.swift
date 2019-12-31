@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  mvvm_combine
 //
-//  Created by Syner Media on 01/12/2019.
+//  Created by apiotrowicz on 01/12/2019.
 //
 
 import UIKit
@@ -10,8 +10,6 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
