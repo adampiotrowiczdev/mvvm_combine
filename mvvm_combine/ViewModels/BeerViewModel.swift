@@ -2,10 +2,11 @@
 //  ViewModel.swift
 //  mvvm_combine
 //
-//  Created by Syner Media on 01/12/2019.
+//  Created by apiotrowicz on 01/12/2019.
 //
 
 import Combine
+import UIKit
 
 class BeerViewModel : BaseViewModel {
     
@@ -18,11 +19,20 @@ class BeerViewModel : BaseViewModel {
     }
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
+    var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
     
     required init() {
+        super.init()
     }
         
     func fetchBeerNames() {
         beerNames.send(Consts.beers)
+    }
+    
+    func navigateToDescriptionView(viewController: UIViewController) {
+        guard let parameter = selectedBeer.value else { return }
+        let descriptionViewModel = DescriptionViewModel(parameter)
+        let descriptionViewController = DescriptionViewController(descriptionViewModel)
+        viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
 }

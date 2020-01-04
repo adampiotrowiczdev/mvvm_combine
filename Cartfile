@@ -1,3 +1,4 @@
-github "Alamofire/Alamofire" ~> 4.9.1
-github "SnapKit/SnapKit" ~> 5.0.1
+github "Alamofire/Alamofire"
+github "SnapKit/SnapKit"
 github "mac-cain13/R.swift.Library"
+github "Swinject/Swinject"
