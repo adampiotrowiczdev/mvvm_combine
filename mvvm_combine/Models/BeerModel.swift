@@ -8,6 +8,7 @@
 struct BeerModel {
     let name: String
     let description: String
+    let percentage: String
 }
 
 extension BeerModel: CombinePickerViewDataType {
@@ -15,3 +16,5 @@ extension BeerModel: CombinePickerViewDataType {
         return name
     }
 }
+
+//extension BeerModel:

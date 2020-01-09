@@ -11,11 +11,11 @@ import UIKit
 class BeerViewModel : BaseViewModel {
     
     private struct Consts {
-        static let beers = [BeerModel(name: "Komes", description: "IPA"),
-                            BeerModel(name: "Tyskie", description: "Lager"),
-                            BeerModel(name: "Łomża", description: "Lager"),
-                            BeerModel(name: "Żywiec Białe", description: "Wheat"),
-                            BeerModel(name: "Birra Moretti", description: "Lager")]
+        static let beers = [BeerModel(name: "Komes", description: "IPA", percentage: "7%"),
+                            BeerModel(name: "Tyskie", description: "Lager", percentage: "5,6%"),
+                            BeerModel(name: "Łomża", description: "Lager", percentage: "5,7%"),
+                            BeerModel(name: "Żywiec Białe", description: "Wheat", percentage: "4,9%"),
+                            BeerModel(name: "Birra Moretti", description: "Lager", percentage: "4,6%")]
     }
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
