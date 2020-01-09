@@ -6,7 +6,14 @@
 //
 
 import Combine
+import UIKit
 
 class DescriptionViewModel : BaseViewModelWithParameter<BeerModel> {
     
+    func navigateToAlcoholPercentageView(viewController: UIViewController) {
+        
+        let alcoholPercentageViewController = AlcoholPercentageViewController()
+        viewController.navigationController?.pushViewController(alcoholPercentageViewController, animated: true)
+    }
 }
+ 

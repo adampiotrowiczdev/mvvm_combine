@@ -14,8 +14,8 @@ class BeerViewModel : BaseViewModel {
         static let beers = [BeerModel(name: "Komes", description: "IPA"),
                             BeerModel(name: "Tyskie", description: "Lager"),
                             BeerModel(name: "Łomża", description: "Lager"),
-                            BeerModel(name: "Żywiec Białe", description: "Pszeniczne"),
-                            BeerModel(name: "Birra Moretti", description: "Italiano birra")]
+                            BeerModel(name: "Żywiec Białe", description: "Wheat"),
+                            BeerModel(name: "Birra Moretti", description: "Lager")]
     }
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
@@ -34,5 +34,6 @@ class BeerViewModel : BaseViewModel {
         let descriptionViewModel = DescriptionViewModel(parameter)
         let descriptionViewController = DescriptionViewController(descriptionViewModel)
         viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
+
     }
 }

@@ -107,12 +107,21 @@ struct R: Rswift.Validatable {
 
   /// This `R.color` struct is generated, and contains static references to 3 colors.
   struct color {
+    /// Color `Tomato`.
+    static let tomato = Rswift.ColorResource(bundle: R.hostingBundle, name: "Tomato")
     /// Color `gray`.
     static let gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "gray")
     /// Color `light_gray`.
     static let light_gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "light_gray")
-    /// Color `tomato`.
-    static let tomato = Rswift.ColorResource(bundle: R.hostingBundle, name: "tomato")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Tomato", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func tomato(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.tomato, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "gray", bundle: ..., traitCollection: ...)`
@@ -129,15 +138,6 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func light_gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.light_gray, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "tomato", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func tomato(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.tomato, compatibleWith: traitCollection)
     }
     #endif
 
