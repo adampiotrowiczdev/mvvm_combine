@@ -47,7 +47,7 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
     
     private func configureViews() {
         view.backgroundColor = R.color.gray()
-        percentageButton.addTarget(self, action:#selector(percentageTapped), for: .touchUpInside)
+        percentageButton.addTarget(self, action:#selector(self.percentageTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
@@ -74,7 +74,6 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
         static var percentageButton : UIButton {
             let button = UIButton()
             button.setTitle("Percentage", for: .normal)
-            button.isEnabled = false
             return button
         }
     }
