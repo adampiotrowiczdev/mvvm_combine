@@ -7,6 +7,6 @@
 
 import Combine
 
-class AlcoholViewModel : BaseViewModel {
+class AlcoholViewModel : BaseViewModelWithParameter<BeerModel> {
     
 }

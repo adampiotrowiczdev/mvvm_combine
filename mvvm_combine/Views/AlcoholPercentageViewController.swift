@@ -17,6 +17,7 @@ class AlcoholPercentageViewController: BaseViewController<AlcoholViewModel> {
         addSubviews()
         setUpConstraints()
         configureViews()
+        
     }
     
     private func addSubviews() {
@@ -27,6 +28,12 @@ class AlcoholPercentageViewController: BaseViewController<AlcoholViewModel> {
         percentageTextField.snp.makeConstraints {
             $0.center.equalTo(view.center)
         }
+    }
+    
+    private func bindUI() {
+        viewModel.parameterSubject.sink { value in
+            self.percentageTextField.text = " \(value?.percentage) %"
+        }.store(in: &cancelBag)
     }
     
     private func configureViews() {
