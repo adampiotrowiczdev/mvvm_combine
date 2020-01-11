@@ -8,7 +8,7 @@
 struct BeerModel {
     let name: String
     let description: String
-    let percentage: Double
+    let alcoholPercentage: Double
 }
 
 extension BeerModel: CombinePickerViewDataType {

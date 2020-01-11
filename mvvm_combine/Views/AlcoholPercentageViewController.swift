@@ -32,7 +32,7 @@ class AlcoholPercentageViewController: BaseViewController<AlcoholPercentageViewM
     
     private func bindUI() {
         viewModel.parameterSubject.sink { value in
-            self.percentageTextField.text = " \(String(value?.percentage ?? 0)) %"
+            self.percentageTextField.text = " \(String(value?.alcoholPercentage ?? 0)) %"
         }.store(in: &cancelBag)
     }
     
