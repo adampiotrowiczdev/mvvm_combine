@@ -34,6 +34,5 @@ class BeerViewModel : BaseViewModel {
         let descriptionViewModel = DescriptionViewModel(parameter)
         let descriptionViewController = DescriptionViewController(descriptionViewModel)
         viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
-
     }
 }

@@ -56,7 +56,7 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
         }.store(in: &cancelBag)
     }
     
-    @objc func percentageTapped(_ sender : UIButton) {
+    @objc func percentageTapped(_ sender: UIButton) {
         viewModel.navigateToAlcoholPercentageView(viewController: self)
     }
     
@@ -77,5 +77,4 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
             return button
         }
     }
-        
 }

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class AlcoholPercentageViewController: BaseViewController<AlcoholViewModel> {
+class AlcoholPercentageViewController: BaseViewController<AlcoholPercentageViewModel> {
     
     private let percentageTextField = FactoryView.percentageTextField
     
@@ -18,7 +18,6 @@ class AlcoholPercentageViewController: BaseViewController<AlcoholViewModel> {
         setUpConstraints()
         configureViews()
         bindUI()
-        
     }
     
     private func addSubviews() {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */; };
-		23CC08BD23C64246003F2DE2 /* AlcoholViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BC23C64245003F2DE2 /* AlcoholViewModel.swift */; };
+		23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */; };
 		3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286F4D23B953960040DA39 /* CancelBag.swift */; };
 		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
 		3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* BeerViewModel.swift */; };
@@ -71,7 +71,7 @@
 
 /* Begin PBXFileReference section */
 		23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewController.swift; sourceTree = "<group>"; };
-		23CC08BC23C64245003F2DE2 /* AlcoholViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholViewModel.swift; sourceTree = "<group>"; };
+		23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewModel.swift; sourceTree = "<group>"; };
 		3F286F4D23B953960040DA39 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 		3F3091372394407700829EF7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		3F30913E2394457E00829EF7 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModel.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				3F30913E2394457E00829EF7 /* BeerViewModel.swift */,
 				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
-				23CC08BC23C64245003F2DE2 /* AlcoholViewModel.swift */,
+				23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
-				23CC08BD23C64246003F2DE2 /* AlcoholViewModel.swift in Sources */,
+				23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */,
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
 				23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */,
 				CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */,

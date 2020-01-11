@@ -16,4 +16,3 @@ extension BeerModel: CombinePickerViewDataType {
         return name
     }
 }
-
