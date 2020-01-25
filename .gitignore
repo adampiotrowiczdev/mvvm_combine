@@ -67,3 +67,7 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 Carthage
+Pods
+mvvm_combine/GoogleService-Info.plist
+.DS_Store
+R.generated.swift

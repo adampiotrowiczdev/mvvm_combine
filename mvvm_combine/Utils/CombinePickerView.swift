@@ -7,13 +7,14 @@
 
 import UIKit
 import Combine
+import AwaitKit
 
 protocol CombinePickerViewDataType {
     var rowName: String { get }
 }
 
 private struct Consts {
-    static let numberOfColumnsInPicker = 1
+    static let numberOfComponents = 1
 }
 
 class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -30,14 +31,16 @@ class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerView
     
     var pickerData : [T] = [T]() {
         didSet {
-            self.reloadAllComponents()
+            DispatchQueue.main.async {
+                self.reloadAllComponents()
+            }
         }
     }
     
     let selectedValue = CurrentValueSubject<T?, Never>(nil)
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return Consts.numberOfColumnsInPicker
+        return Consts.numberOfComponents
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -49,7 +52,7 @@ class CombinePickerView<T:CombinePickerViewDataType>: UIPickerView, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int , inComponent component: Int) {
-        selectedValue.send(pickerData[row])
+        selectedValue.send(!pickerData.isEmpty ? pickerData[row] : nil)
     }
 }
     

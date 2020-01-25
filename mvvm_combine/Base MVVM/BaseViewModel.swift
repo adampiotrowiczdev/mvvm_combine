@@ -15,6 +15,8 @@ class BaseViewModel {
     
     func viewDidLoad() { }
     
+    func asyncInitialize() { }
+    
     func viewWillAppear() { }
        
     func viewDidAppear() { }

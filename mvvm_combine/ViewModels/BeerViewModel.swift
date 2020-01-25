@@ -7,6 +7,8 @@
 
 import Combine
 import UIKit
+import AwaitKit
+import PromiseKit
 
 class BeerViewModel : BaseViewModel {
     
@@ -24,9 +26,26 @@ class BeerViewModel : BaseViewModel {
     required init() {
         super.init()
     }
-        
-    func fetchBeerNames() {
-        beerNames.send(Consts.beers)
+    
+    override func asyncInitialize() {
+        async {
+            self.beerNames.send(try await(self.fetchBeerNames()))
+            self.beerNames.send(try await(self.fetchBeerEmpty()))
+        }
+    }
+    
+    private func fetchBeerNames() -> Promise<[BeerModel]> {
+        async {
+            sleep(10)
+            return Consts.beers
+        }
+    }
+    
+    private func fetchBeerEmpty() -> Promise<[BeerModel]> {
+        async {
+            sleep(10)
+            return [BeerModel]()
+        }
     }
     
     func navigateToDescriptionView(viewController: UIViewController) {

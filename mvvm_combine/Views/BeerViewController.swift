@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Combine
+import AwaitKit
 
 class BeerViewController: BaseViewController<BeerViewModel> {
     
@@ -30,14 +31,15 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         viewModel.fetchBeerNames()
-     }
-     
-     override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(animated)
-     }
-
+        Toast().show(controller: self, message: "names1", seconds: 1)
+        super.viewWillAppear(animated)
+        Toast().show(controller: self, message: "names2", seconds: 1)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     private func addSubviews() {
         view.addSubview(drinkButton)
         view.addSubview(beerTextField)
@@ -101,7 +103,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             textField.textAlignment = .center
             textField.textColor = .white
             textField.attributedPlaceholder = NSAttributedString(string: "Choose your taste here",
-            attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                                 attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
             return textField
         }
     }

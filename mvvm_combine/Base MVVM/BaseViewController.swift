@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import AwaitKit
 
 class BaseViewController<T:BaseViewModel>: UIViewController {
 
@@ -26,6 +27,9 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
+        async {
+            self.viewModel.asyncInitialize()
+        }
     }
         
     override func viewWillAppear(_ animated: Bool) {
