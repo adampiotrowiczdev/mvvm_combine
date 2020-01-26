@@ -6,6 +6,7 @@
 //
 
 import Combine
+import PromiseKit
 
 class BaseViewModel {
     var viewModelType : BaseViewModel.Type
@@ -15,10 +16,10 @@ class BaseViewModel {
     
     func viewDidLoad() { }
     
-    func asyncInitialize() { }
+    func asyncInitialize() -> Promise<()> { Promise<()>() }
     
     func viewWillAppear() { }
-       
+        
     func viewDidAppear() { }
        
     func viewWillDisappear() { }

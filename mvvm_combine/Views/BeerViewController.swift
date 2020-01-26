@@ -30,16 +30,6 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         bindUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        Toast().show(controller: self, message: "names1", seconds: 1)
-        super.viewWillAppear(animated)
-        Toast().show(controller: self, message: "names2", seconds: 1)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     private func addSubviews() {
         view.addSubview(drinkButton)
         view.addSubview(beerTextField)

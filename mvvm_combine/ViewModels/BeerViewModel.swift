@@ -9,16 +9,24 @@ import Combine
 import UIKit
 import AwaitKit
 import PromiseKit
+import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
+import CodableFirebase
 
 class BeerViewModel : BaseViewModel {
     
-    private struct Consts {
-        static let beers = [BeerModel(name: "Komes", description: "IPA"),
-                            BeerModel(name: "Tyskie", description: "Lager"),
-                            BeerModel(name: "Łomża", description: "Lager"),
-                            BeerModel(name: "Żywiec Białe", description: "Pszeniczne"),
-                            BeerModel(name: "Birra Moretti", description: "Italiano birra")]
-    }
+    //MARK: Example of adding records to firestore
+    //    Consts.beers.forEach { beer in
+    //        try! Firestore.firestore().collection("beers").addDocument(from: beer)
+    //    }
+    //    private struct Consts {
+    //        static let beers = [BeerModel(name: "Komes", description: "IPA"),
+    //                            BeerModel(name: "Tyskie", description: "Lager"),
+    //                            BeerModel(name: "Łomża", description: "Lager"),
+    //                            BeerModel(name: "Żywiec Białe", description: "Pszeniczne"),
+    //                            BeerModel(name: "Birra Moretti", description: "Italiano birra")]
+    //    }
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
@@ -27,24 +35,25 @@ class BeerViewModel : BaseViewModel {
         super.init()
     }
     
-    override func asyncInitialize() {
+    private let jsonDecoder = JSONDecoder()
+    private let jsonEncoder = JSONEncoder()
+    
+    override func asyncInitialize() -> Promise<()> {
         async {
-            self.beerNames.send(try await(self.fetchBeerNames()))
-            self.beerNames.send(try await(self.fetchBeerEmpty()))
+            self.beerNames.send(try! await(self.fetchBeerNames()))
         }
     }
     
     private func fetchBeerNames() -> Promise<[BeerModel]> {
-        async {
-            sleep(10)
-            return Consts.beers
-        }
-    }
-    
-    private func fetchBeerEmpty() -> Promise<[BeerModel]> {
-        async {
-            sleep(10)
-            return [BeerModel]()
+        return Promise<[BeerModel]>  { seal in
+            let beersFireCollection = Firestore.firestore().collection("beers")
+            beersFireCollection.getDocuments { querySnapshot, _  in
+                seal.fulfill(querySnapshot!.documents.map { document in
+                    //TODO: remove after tests, simulate longer loading time
+                    usleep(500000)
+                    return try! FirestoreDecoder().decode(BeerModel.self, from: document.data())
+                })
+            }
         }
     }
     
@@ -55,3 +64,21 @@ class BeerViewModel : BaseViewModel {
         viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
 }
+
+//TODO: Probably to remove, to ugly way to do that, this property shoud be accessible in Coordinator
+//extension UIApplication {
+//    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+//        if let nav = base as? UINavigationController {
+//            return topViewController(base: nav.visibleViewController)
+//        }
+//        if let tab = base as? UITabBarController {
+//            if let selected = tab.selectedViewController {
+//                return topViewController(base: selected)
+//            }
+//        }
+//        if let presented = base?.presentedViewController {
+//            return topViewController(base: presented)
+//        }
+//        return base
+//    }
+//}

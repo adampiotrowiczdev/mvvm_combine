@@ -71,3 +71,5 @@ Pods
 mvvm_combine/GoogleService-Info.plist
 .DS_Store
 R.generated.swift
+*/GoogleService-Info.plist
+.DS_Store

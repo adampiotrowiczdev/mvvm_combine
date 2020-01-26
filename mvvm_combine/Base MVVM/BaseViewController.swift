@@ -10,7 +10,7 @@ import Combine
 import AwaitKit
 
 class BaseViewController<T:BaseViewModel>: UIViewController {
-
+    
     init(_ viewModel: T = T()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -22,35 +22,95 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     
     var viewModel: T
     var cancelBag = Set<AnyCancellable>()
-    var isNavigationBarHidden: Bool = false
-        
+    var isNavigationBarHidden: Bool = false {
+        didSet {
+            navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: false)
+        }
+    }
+    
+    var spinnerView : UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         async {
-            self.viewModel.asyncInitialize()
+            self.showLoading()
+            try! await( self.viewModel.asyncInitialize() )
+            self.hideLoading()
         }
     }
-        
-    override func viewWillAppear(_ animated: Bool) {
+    
+    override final func viewWillAppear(_ animated: Bool) {
+        viewWillAppearBefore()
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: false)
         viewModel.viewWillAppear()
-        navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: animated)
+        viewWillAppearAfter()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    func viewWillAppearBefore() {
+    }
+    
+    func viewWillAppearAfter() {
+    }
+    
+    override final func viewDidAppear(_ animated: Bool) {
+        viewDidAppearBefore()
         super.viewDidAppear(animated)
         viewModel.viewDidAppear()
+        viewDidAppearAfter()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    func viewDidAppearBefore() {
+    }
+    
+    func viewDidAppearAfter() {
+    }
+    
+    override final func viewWillDisappear(_ animated: Bool) {
+        viewWillDisappearBefore()
         super.viewWillDisappear(animated)
         viewModel.viewWillDisappear()
+        viewWillDisappearAfter()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    func viewWillDisappearBefore() {
+    }
+    
+    func viewWillDisappearAfter() {
+    }
+    
+    override final func viewDidDisappear(_ animated: Bool) {
+        viewDidDisappearBefore()
         super.viewDidDisappear(animated)
         viewModel.viewDidDisappear()
+        viewDidDisappearAfter()
     }
     
+    func viewDidDisappearBefore() {
+    }
+    
+    func viewDidDisappearAfter() {
+    }
+    
+    //TODO: Make Loading Presenter injected to ViewModel
+    func showLoading() {
+        DispatchQueue.main.async {
+//            self.spinnerView = UIView.init(frame: self.view.bounds)
+//            self.spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+            let ai = UIActivityIndicatorView.init(style: .large)
+            ai.startAnimating()
+            ai.center = self.view.center
+            self.spinnerView = ai
+            //self.spinnerView?.addSubview(ai)
+            self.view.addSubview(ai)//self.spinnerView!)
+        }
+    }
+    
+    func hideLoading() {
+        DispatchQueue.main.async {
+            self.spinnerView?.removeFromSuperview()
+        }
+    }
 }
+
