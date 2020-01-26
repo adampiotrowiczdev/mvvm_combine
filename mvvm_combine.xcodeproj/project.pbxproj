@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1CF57623C172FB00965505 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CF57523C172FB00965505 /* BaseCoordinator.swift */; };
 		3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286F4D23B953960040DA39 /* CancelBag.swift */; };
 		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
 		3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* BeerViewModel.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1CF57523C172FB00965505 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		3F286F4D23B953960040DA39 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 		3F3091372394407700829EF7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		3F30913E2394457E00829EF7 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModel.swift; sourceTree = "<group>"; };
@@ -179,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				CE633D45239C50B000C7612D /* Utils */,
-				CEB73BDD239C59FD002E34CA /* Base MVVM */,
+				CEB73BDD239C59FD002E34CA /* Base MVVM_C */,
 				3F3091392394450A00829EF7 /* Models */,
 				3F30913A2394451900829EF7 /* Views */,
 				3F30913B2394452500829EF7 /* ViewModels */,
@@ -231,13 +233,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		CEB73BDD239C59FD002E34CA /* Base MVVM */ = {
+		CEB73BDD239C59FD002E34CA /* Base MVVM_C */ = {
 			isa = PBXGroup;
 			children = (
 				CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */,
 				CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */,
+				3F1CF57523C172FB00965505 /* BaseCoordinator.swift */,
 			);
-			path = "Base MVVM";
+			path = "Base MVVM_C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +427,7 @@
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
 				CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */,
 				CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */,
+				3F1CF57623C172FB00965505 /* BaseCoordinator.swift in Sources */,
 				8C0239B423B7CD1E00DC27BC /* DescriptionViewModel.swift in Sources */,
 				3FECC55A2395BD71000567D0 /* SceneDelegate.swift in Sources */,
 				3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */,
