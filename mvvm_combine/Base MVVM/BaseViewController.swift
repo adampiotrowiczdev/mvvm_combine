@@ -30,7 +30,7 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     
     var spinnerView : UIView?
     
-    override func viewDidLoad() {
+    override final func viewDidLoad() {
         viewDidLoadBefore()
         super.viewDidLoad()
         viewModel.viewDidLoad()
