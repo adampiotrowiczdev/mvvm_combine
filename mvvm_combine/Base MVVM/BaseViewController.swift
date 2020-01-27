@@ -31,13 +31,21 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     var spinnerView : UIView?
     
     override func viewDidLoad() {
+        viewDidLoadBefore()
         super.viewDidLoad()
         viewModel.viewDidLoad()
+        viewDidLoadAfter()
         async {
             self.showLoading()
             try! await( self.viewModel.asyncInitialize() )
             self.hideLoading()
         }
+    }
+    
+    func viewDidLoadBefore() {
+    }
+    
+    func viewDidLoadAfter() {
     }
     
     override final func viewWillAppear(_ animated: Bool) {
@@ -96,8 +104,8 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
     //TODO: Make Loading Presenter injected to ViewModel
     func showLoading() {
         DispatchQueue.main.async {
-//            self.spinnerView = UIView.init(frame: self.view.bounds)
-//            self.spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+//          self.spinnerView = UIView.init(frame: self.view.bounds)
+//          self.spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
             let ai = UIActivityIndicatorView.init(style: .large)
             ai.startAnimating()
             ai.center = self.view.center

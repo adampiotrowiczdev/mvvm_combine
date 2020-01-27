@@ -33,12 +33,13 @@
 		994D7F959C4288B4FE88555F /* Pods_mvvm_combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5099E5280DCCED3B8C50799 /* Pods_mvvm_combine.framework */; };
 		CE349FE523DCCE7500A38BE2 /* CodableFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE349FE423DCCE7500A38BE2 /* CodableFirebase.framework */; };
 		CE349FE623DCCE7500A38BE2 /* CodableFirebase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE349FE423DCCE7500A38BE2 /* CodableFirebase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE349FE823DE268F00A38BE2 /* BeerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE349FE723DE268F00A38BE2 /* BeerViewModelTest.swift */; };
+		CE349FEA23DE3D5300A38BE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE349FE923DE3D5300A38BE2 /* GoogleService-Info.plist */; };
 		CE633D47239C51B400C7612D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633D46239C51B400C7612D /* Toast.swift */; };
 		CEB276D023DC933500C68700 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB276CF23DC933500C68700 /* AwaitKit.framework */; };
 		CEB276D123DC933500C68700 /* AwaitKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEB276CF23DC933500C68700 /* AwaitKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEB276D323DC934900C68700 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB276D223DC934900C68700 /* PromiseKit.framework */; };
 		CEB276D423DC934900C68700 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEB276D223DC934900C68700 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CEB276D623DCA80600C68700 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB276D523DCA80600C68700 /* GoogleService-Info.plist */; };
 		CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */; };
 		CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */; };
 		F54C939AFA79777FF1BFDD85 /* Pods_mvvm_combineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E8A23A8AA3EDE7314E6EF7 /* Pods_mvvm_combineTests.framework */; };
@@ -116,10 +117,11 @@
 		C92479B6E7C6DA789405E4A8 /* Pods-mvvm_combine-mvvm_combineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm_combine-mvvm_combineUITests.debug.xcconfig"; path = "Target Support Files/Pods-mvvm_combine-mvvm_combineUITests/Pods-mvvm_combine-mvvm_combineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9E8A23A8AA3EDE7314E6EF7 /* Pods_mvvm_combineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_combineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE349FE423DCCE7500A38BE2 /* CodableFirebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CodableFirebase.framework; path = Carthage/Build/iOS/CodableFirebase.framework; sourceTree = "<group>"; };
+		CE349FE723DE268F00A38BE2 /* BeerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModelTest.swift; sourceTree = "<group>"; };
+		CE349FE923DE3D5300A38BE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE633D46239C51B400C7612D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		CEB276CF23DC933500C68700 /* AwaitKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AwaitKit.framework; path = Carthage/Build/iOS/AwaitKit.framework; sourceTree = "<group>"; };
 		CEB276D223DC934900C68700 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		CEB276D523DCA80600C68700 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEB276D723DCA81000C68700 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 				3FECC5482395B25E000567D0 /* Frameworks */,
 				3FECC5572395BBDC000567D0 /* R.generated.swift */,
 				3F3091372394407700829EF7 /* Cartfile */,
-				CEB276D523DCA80600C68700 /* GoogleService-Info.plist */,
+				CE349FE923DE3D5300A38BE2 /* GoogleService-Info.plist */,
 				B3DCEAFD10A4AB2A80A69E38 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -218,6 +220,7 @@
 				3F3091392394450A00829EF7 /* Models */,
 				3F30913A2394451900829EF7 /* Views */,
 				3F30913B2394452500829EF7 /* ViewModels */,
+				CE349FEB23DE3E2100A38BE2 /* Interactors */,
 				3FE5EC61239431720042C8AF /* mvvm_combine.xcdatamodeld */,
 				3FECC55E2395CB74000567D0 /* LaunchScreen.storyboard */,
 				3FE5EC64239431770042C8AF /* Assets.xcassets */,
@@ -234,6 +237,7 @@
 			children = (
 				3FE5EC72239431770042C8AF /* mvvm_combineTests.swift */,
 				3FE5EC74239431770042C8AF /* Info.plist */,
+				CE349FE723DE268F00A38BE2 /* BeerViewModelTest.swift */,
 			);
 			path = mvvm_combineTests;
 			sourceTree = "<group>";
@@ -274,6 +278,13 @@
 				29A7A446206010E28D27C649 /* Pods-mvvm_combineTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE349FEB23DE3E2100A38BE2 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		CE633D45239C50B000C7612D /* Utils */ = {
@@ -407,7 +418,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FECC5602395CB74000567D0 /* LaunchScreen.storyboard in Resources */,
-				CEB276D623DCA80600C68700 /* GoogleService-Info.plist in Resources */,
 				3FE5EC65239431770042C8AF /* Assets.xcassets in Resources */,
 				3F3091382394407700829EF7 /* Cartfile in Resources */,
 			);
@@ -417,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE349FEA23DE3D5300A38BE2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE349FE823DE268F00A38BE2 /* BeerViewModelTest.swift in Sources */,
 				3FE5EC73239431770042C8AF /* mvvm_combineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

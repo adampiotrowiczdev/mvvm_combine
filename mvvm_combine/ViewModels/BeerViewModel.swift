@@ -35,9 +35,6 @@ class BeerViewModel : BaseViewModel {
         super.init()
     }
     
-    private let jsonDecoder = JSONDecoder()
-    private let jsonEncoder = JSONEncoder()
-    
     override func asyncInitialize() -> Promise<()> {
         async {
             self.beerNames.send(try! await(self.fetchBeerNames()))
