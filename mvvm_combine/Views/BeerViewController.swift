@@ -14,12 +14,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     private struct Consts {
         static let beerTextFieldFontSize : CGFloat = 20
         static let beetTextFieldTopOffset : CGFloat = 50
+        static let floatingButtonSize : CGFloat = 50
         static let toastShowingTime : Double = 1
     }
     
     private let drinkButton = FactoryView.drinkButton
     private let beerPicker = FactoryView.beerPicker
     private let beerTextField = FactoryView.beerTextField
+    private let floatingAddButton = FactoryView.floatingAddButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +43,20 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     private func addSubviews() {
         view.addSubview(drinkButton)
         view.addSubview(beerTextField)
+        view.addSubview(floatingAddButton)
     }
     
     private func setUpConstraints() {
         beerTextField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(Consts.beetTextFieldTopOffset)
-            $0.width.equalTo(view)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Consts.beetTextFieldTopOffset)
+            $0.width.equalToSuperview()
         }
         drinkButton.snp.makeConstraints {
-            $0.center.equalTo(view)
+            $0.center.equalToSuperview()
+        }
+        floatingAddButton.snp.makeConstraints {
+            $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(Consts.floatingButtonSize)
+            $0.size.equalTo(Consts.floatingButtonSize)
         }
     }
     
@@ -58,6 +65,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         view.backgroundColor = R.color.gray()
         beerTextField.inputView = beerPicker
         drinkButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
+        floatingAddButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
@@ -103,6 +111,17 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             textField.attributedPlaceholder = NSAttributedString(string: "Choose your taste here",
             attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
             return textField
+        }
+        
+        static var floatingAddButton: UIButton {
+            let button = UIButton()
+            button.contentHorizontalAlignment = .center;
+            button.titleLabel?.font = button.titleLabel?.font.withSize(30)
+            button.setTitleColor(R.color.gray(), for: .normal)
+            button.setTitle("+", for: .normal)
+            button.backgroundColor = .white
+            button.layer.cornerRadius = Consts.floatingButtonSize/2
+            return button
         }
     }
     
