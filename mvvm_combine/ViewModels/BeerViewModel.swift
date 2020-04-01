@@ -30,9 +30,9 @@ class BeerViewModel : BaseViewModel {
     }
     
     func navigateToDescriptionView(viewController: UIViewController) {
-        guard let parameter = selectedBeer.value else { return }
-        let descriptionViewModel = DescriptionViewModel(parameter)
-        let descriptionViewController = DescriptionViewController(descriptionViewModel)
+        //guard let parameter = selectedBeer.value else { return }
+        //let descriptionViewModel = DescriptionViewModel(parameter)
+        let descriptionViewController = DescriptionViewController()//(descriptionViewModel)
         viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
 }

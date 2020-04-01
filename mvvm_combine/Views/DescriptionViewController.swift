@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class DescriptionViewController: BaseViewController<DescriptionViewModel> {
+class DescriptionViewController: UIViewController {
     
     private let desctriptionTextField = FactoryView.descriptionTextField
     
@@ -32,13 +32,13 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
     }
     
     private func configureViews() {
-        view.backgroundColor = R.color.gray()
+        view.backgroundColor = .gray
     }
     
     private func bindUI() {
-        viewModel.parameterSubject.sink { value in
-            self.desctriptionTextField.text = value?.description
-        }.store(in: &cancelBag)
+//        viewModel.parameterSubject.sink { value in
+//            self.desctriptionTextField.text = value?.description
+//        }.store(in: &cancelBag)
     }
     
     private struct FactoryView {
@@ -49,6 +49,7 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel> {
             textField.tintColor = .clear
             textField.borderStyle = .roundedRect
             textField.isUserInteractionEnabled = false
+            textField.backgroundColor = .red
             return textField
         }
     }

@@ -32,6 +32,7 @@
 		CE633D47239C51B400C7612D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633D46239C51B400C7612D /* Toast.swift */; };
 		CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */; };
 		CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */; };
+		CEC8661B242E62D900B3E922 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8661A242E62D900B3E922 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		CE633D46239C51B400C7612D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		CEC8661A242E62D900B3E922 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		3F30913A2394451900829EF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC8661A242E62D900B3E922 /* TableViewCell.swift */,
 				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
 				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
 			);
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC8661B242E62D900B3E922 /* TableViewCell.swift in Sources */,
 				8C3D534F23A4312000F74278 /* DescriptionViewController.swift in Sources */,
 				3FBAD63B239D943F00918D30 /* CombinePickerView.swift in Sources */,
 				8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */,

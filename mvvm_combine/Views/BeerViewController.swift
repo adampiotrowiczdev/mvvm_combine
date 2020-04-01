@@ -9,7 +9,23 @@ import UIKit
 import SnapKit
 import Combine
 
-class BeerViewController: BaseViewController<BeerViewModel> {
+class BeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: "TableViewCell")!
+         
+    }
+    //<BeerViewModel> {
+    
+    @objc func injected() {
+        view.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        viewDidLoad()
+    }
     
     private struct Consts {
         static let beerTextFieldFontSize : CGFloat = 20
@@ -31,7 +47,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-         viewModel.fetchBeerNames()
+         //viewModel.fetchBeerNames()
      }
      
      override func viewWillDisappear(_ animated: Bool) {
@@ -44,6 +60,13 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     private func setUpConstraints() {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .white
+        tableView.rowHeight = 100
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        view.addSubview(tableView)
         beerTextField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(Consts.beetTextFieldTopOffset)
             $0.width.equalTo(view)
@@ -51,39 +74,46 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         drinkButton.snp.makeConstraints {
             $0.center.equalTo(view)
         }
+        tableView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(drinkButton.snp.bottom).offset(25)
+        }
     }
     
     private func configureViews() {
-        isNavigationBarHidden = true
+        //isNavigationBarHidden = true
         view.backgroundColor = R.color.gray()
         beerTextField.inputView = beerPicker
         drinkButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
-        cancelBag.collect {
-            viewModel.beerNames.sink( receiveValue: { value in
-                self.beerPicker.pickerData = value
-            })
-            beerPicker.selectedValue.subscribe(viewModel.selectedBeer)
-            viewModel.selectedBeer.sink(receiveValue: { value in
-                self.drinkButton.isEnabled = value != nil
-                guard let beer = value else { return }
-                self.beerTextField.text = beer.name
-                self.view.endEditing(true)
-            })
-        }
+//        cancelBag.collect {
+//            viewModel.beerNames.sink( receiveValue: { value in
+//                self.beerPicker.pickerData = value
+//            })
+//            beerPicker.selectedValue.subscribe(viewModel.selectedBeer)
+//            viewModel.selectedBeer.sink(receiveValue: { value in
+//                self.drinkButton.isEnabled = value != nil
+//                guard let beer = value else { return }
+//                self.beerTextField.text = beer.name
+//                self.view.endEditing(true)
+//            })
+//        }
     }
     
     @objc func drinkTapped(_ sender : UIButton) {
-        viewModel.navigateToDescriptionView(viewController: self)
+        let descriptionViewController = DescriptionViewController()//(descriptionViewModel)
+        navigationController?.pushViewController(descriptionViewController, animated: true)
+        //viewModel.navigateToDescriptionView(viewController: self)
     }
     
     private struct FactoryView {
         static var drinkButton : UIButton {
             let button = UIButton()
             button.setTitle("DRINK", for: .normal)
-            button.isEnabled = false
+            //button.isEnabled = false
             return button
         }
         
@@ -99,7 +129,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             textField.borderStyle = .roundedRect
             textField.font = UIFont.systemFont(ofSize: Consts.beerTextFieldFontSize)
             textField.textAlignment = .center
-            textField.textColor = .white
+            textField.backgroundColor = .white
             textField.attributedPlaceholder = NSAttributedString(string: "Choose your taste here",
             attributes:[NSAttributedString.Key.foregroundColor: UIColor.white])
             return textField
