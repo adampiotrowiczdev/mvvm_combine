@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */; };
+		23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */; };
 		3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286F4D23B953960040DA39 /* CancelBag.swift */; };
 		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
 		3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* BeerViewModel.swift */; };
@@ -68,6 +70,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewController.swift; sourceTree = "<group>"; };
+		23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewModel.swift; sourceTree = "<group>"; };
 		3F286F4D23B953960040DA39 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 		3F3091372394407700829EF7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		3F30913E2394457E00829EF7 /* BeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			children = (
 				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
 				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
+				23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			children = (
 				3F30913E2394457E00829EF7 /* BeerViewModel.swift */,
 				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
+				23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -421,7 +427,9 @@
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
+				23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */,
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
+				23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */,
 				CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */,
 				CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */,
 				8C0239B423B7CD1E00DC27BC /* DescriptionViewModel.swift in Sources */,
@@ -593,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P9XV8R599Y;
+				DEVELOPMENT_TEAM = UM74TVYY9W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -603,7 +611,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -615,7 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P9XV8R599Y;
+				DEVELOPMENT_TEAM = UM74TVYY9W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -625,7 +633,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.apdev.mvvm-combine1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
