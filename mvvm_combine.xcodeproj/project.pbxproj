@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */; };
 		23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */; };
+		23BD68892436514A004F264B /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD68882436514A004F264B /* AddingViewController.swift */; };
+		23BD688B2436550C004F264B /* AddingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD688A2436550C004F264B /* AddingViewModel.swift */; };
 		3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F286F4D23B953960040DA39 /* CancelBag.swift */; };
 		3F3091382394407700829EF7 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 3F3091372394407700829EF7 /* Cartfile */; };
 		3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F30913E2394457E00829EF7 /* BeerViewModel.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23BD68882436514A004F264B /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
+		23BD688A2436550C004F264B /* AddingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewModel.swift; sourceTree = "<group>"; };
 		23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewController.swift; sourceTree = "<group>"; };
 		23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholPercentageViewModel.swift; sourceTree = "<group>"; };
 		3F286F4D23B953960040DA39 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
 				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
+				23BD68882436514A004F264B /* AddingViewController.swift */,
 				23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */,
 			);
 			path = Views;
@@ -154,6 +159,7 @@
 				3F30913E2394457E00829EF7 /* BeerViewModel.swift */,
 				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
 				23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */,
+				23BD688A2436550C004F264B /* AddingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -422,6 +428,8 @@
 			files = (
 				8C3D534F23A4312000F74278 /* DescriptionViewController.swift in Sources */,
 				3FBAD63B239D943F00918D30 /* CombinePickerView.swift in Sources */,
+				23BD68892436514A004F264B /* AddingViewController.swift in Sources */,
+				23BD688B2436550C004F264B /* AddingViewModel.swift in Sources */,
 				8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */,
 				3FECC5522395B44B000567D0 /* BeerViewController.swift in Sources */,
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
