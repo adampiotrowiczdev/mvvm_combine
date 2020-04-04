@@ -35,4 +35,10 @@ class BeerViewModel : BaseViewModel {
         let descriptionViewController = DescriptionViewController(descriptionViewModel)
         viewController.navigationController?.pushViewController(descriptionViewController, animated: true)
     }
+    
+    func navigateToAddingView(viewController: UIViewController) {
+        let addingViewModel = AddingViewModel()
+        let addingViewController = AddingViewController(addingViewModel)
+        viewController.navigationController?.pushViewController(addingViewController, animated: true)
+    }
 }

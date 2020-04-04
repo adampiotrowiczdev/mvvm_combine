@@ -15,6 +15,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         static let beerTextFieldFontSize : CGFloat = 20
         static let beetTextFieldTopOffset : CGFloat = 50
         static let floatingButtonSize : CGFloat = 50
+        static let floatingButtonFontSize : CGFloat = 30
         static let toastShowingTime : Double = 1
     }
     
@@ -65,7 +66,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         view.backgroundColor = R.color.gray()
         beerTextField.inputView = beerPicker
         drinkButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
-        floatingAddButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
+        floatingAddButton.addTarget(self, action:#selector(addTapped), for: .touchUpInside)
     }
     
     private func bindUI() {
@@ -87,6 +88,9 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         viewModel.navigateToDescriptionView(viewController: self)
     }
     
+    @objc func addTapped(_ sender : UIButton) {
+        viewModel.navigateToAddingView(viewController: self)
+    }
     private struct FactoryView {
         static var drinkButton : UIButton {
             let button = UIButton()
@@ -116,7 +120,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         static var floatingAddButton: UIButton {
             let button = UIButton()
             button.contentHorizontalAlignment = .center;
-            button.titleLabel?.font = button.titleLabel?.font.withSize(30)
+            button.titleLabel?.font = button.titleLabel?.font.withSize(Consts.floatingButtonFontSize)
             button.setTitleColor(R.color.gray(), for: .normal)
             button.setTitle("+", for: .normal)
             button.backgroundColor = .white
