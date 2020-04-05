@@ -6,13 +6,12 @@
 //
 
 import Combine
+import UIKit
 
-class AddingViewModel: BaseViewModelWithParameter<BeerModel> {
+class AddingViewModel: BaseViewModel {
     
     func navigateToBeerView(viewController: UIViewController) {
-        let beerViewModel = BeerViewModel()
-        let beerViewController = BeerViewController(beerViewModel)
-        viewController.navigationController?.popViewControllerAnimated(true)
+        viewController.navigationController?.popViewController(animated: true)
     }
     //func addbeer() {
        //var beerViewModel = BeerModel(name: String, description: String, alcoholPercentage: Double)

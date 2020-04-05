@@ -24,8 +24,14 @@ class AddingViewController: BaseViewController<AddingViewModel> {
         setUpConstraints()
         configureViews()
         edgesForExtendedLayout = []
-
+        nameTextField.delegate = self
+        descriptionTextField.delegate = self
+        percentageTextField.delegate = self
     }
+    
+//    override func loadView() {
+//        view = AddingView()
+//    }
     
     private func addSubviews() {
         stackView.addArrangedSubview(nameTextField)
@@ -55,6 +61,14 @@ class AddingViewController: BaseViewController<AddingViewModel> {
     }
 
 }
+
+extension AddingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 
 private struct FactoryView {
     static var stackView: UIStackView {
