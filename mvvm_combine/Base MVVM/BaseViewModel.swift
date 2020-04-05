@@ -8,6 +8,13 @@
 import Combine
 
 class BaseViewModel {
+    
+    static var beers = [BeerModel(name: "Komes", description: "IPA", alcoholPercentage: 7.0),
+                        BeerModel(name: "Tyskie", description: "Lager", alcoholPercentage: 5.6),
+                        BeerModel(name: "Łomża", description: "Lager", alcoholPercentage: 5.7),
+                        BeerModel(name: "Żywiec Białe", description: "Wheat", alcoholPercentage: 4.9),
+                        BeerModel(name: "Birra Moretti", description: "Lager", alcoholPercentage: 4.6)]
+    
     var viewModelType : BaseViewModel.Type
     required init() {
         viewModelType = type(of: self)
