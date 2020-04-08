@@ -23,6 +23,7 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     private let beerPicker = FactoryView.beerPicker
     private let beerTextField = FactoryView.beerTextField
     private let floatingAddButton = FactoryView.floatingAddButton
+    private let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +43,24 @@ class BeerViewController: BaseViewController<BeerViewModel> {
      }
 
     private func addSubviews() {
-        view.addSubview(drinkButton)
-        view.addSubview(beerTextField)
+        //view.addSubview(drinkButton)
+        //view.addSubview(beerTextField)
+        view.addSubview(tableView)
         view.addSubview(floatingAddButton)
     }
     
     private func setUpConstraints() {
-        beerTextField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Consts.beetTextFieldTopOffset)
-            $0.width.equalToSuperview()
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
-        drinkButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        
+//        beerTextField.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Consts.beetTextFieldTopOffset)
+//            $0.width.equalToSuperview()
+//        }
+//        drinkButton.snp.makeConstraints {
+//            $0.center.equalToSuperview()
+//        }
         floatingAddButton.snp.makeConstraints {
             $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(Consts.floatingButtonSize)
             $0.size.equalTo(Consts.floatingButtonSize)
