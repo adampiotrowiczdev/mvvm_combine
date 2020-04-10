@@ -31,6 +31,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         setUpConstraints()
         configureViews()
         bindUI()
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellid")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,5 +136,17 @@ class BeerViewController: BaseViewController<BeerViewModel> {
             return button
         }
     }
-    
 }
+
+extension BeerViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return BaseViewModel.beers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath)
+        cell.textLabel?.text = "Hey"
+        return cell
+    }
+}
+
