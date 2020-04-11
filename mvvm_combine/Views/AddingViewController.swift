@@ -8,6 +8,11 @@
 import UIKit
 import Combine
 
+private struct Consts {
+    static let stackViewConstraints : CGFloat = 25
+    static let stackViewSpacing : CGFloat = 20
+}
+
 class AddingViewController: BaseViewController<AddingViewModel> {
     
     private let nameTextField = FactoryView.nameTextField
@@ -29,10 +34,6 @@ class AddingViewController: BaseViewController<AddingViewModel> {
         percentageTextField.delegate = self
     }
     
-//    override func loadView() {
-//        view = AddingView()
-//    }
-    
     private func addSubviews() {
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(descriptionTextField)
@@ -44,7 +45,7 @@ class AddingViewController: BaseViewController<AddingViewModel> {
     
     private func setUpConstraints() {
         stackView.snp.makeConstraints{
-            $0.edges.equalToSuperview().inset(25)
+            $0.edges.equalToSuperview().inset(Consts.stackViewConstraints)
         }
         spacer.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
@@ -69,13 +70,12 @@ extension AddingViewController: UITextFieldDelegate {
     }
 }
 
-
 private struct FactoryView {
     static var stackView: UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.spacing = 20
+        stackView.spacing = Consts.stackViewSpacing
         stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return stackView
     }

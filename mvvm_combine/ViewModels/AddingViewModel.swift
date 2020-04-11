@@ -13,7 +13,4 @@ class AddingViewModel: BaseViewModel {
     func navigateToBeerView(viewController: UIViewController) {
         viewController.navigationController?.popViewController(animated: true)
     }
-    //func addbeer() {
-       //var beerViewModel = BeerModel(name: String, description: String, alcoholPercentage: Double)
-    //}
 }

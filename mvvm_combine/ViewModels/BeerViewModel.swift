@@ -10,8 +10,6 @@ import UIKit
 
 class BeerViewModel: BaseViewModel {
     
-    
-    
     let beerNames = PassthroughSubject<[BeerModel], Never>()
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
     
