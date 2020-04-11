@@ -98,9 +98,9 @@ extension BeerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath) as! BeerCell
         let beer = BaseViewModel.beers[indexPath.row]
-        cell.label1.text = beer.name
-        cell.label2.text = beer.description
-        cell.label3.text = String(beer.alcoholPercentage) + "%"
+        cell.nameLabel.text = beer.name
+        cell.descriptionLabel.text = beer.description
+        cell.percentageLabel.text = String(beer.alcoholPercentage) + "%"
         cell.tapped = { [weak self] in
             self?.beerTapped(beer: beer)
         }

@@ -60,7 +60,7 @@ class AddingViewController: BaseViewController<AddingViewModel> {
         BeerViewModel.beers.append(BeerModel(name: nameTextField.text ?? "test1", description: descriptionTextField.text ?? "test2", alcoholPercentage: Double(percentageTextField.text ?? "0.0") ?? 0.0))
         viewModel.navigateToBeerView(viewController: self)
     }
-
+    
 }
 
 extension AddingViewController: UITextFieldDelegate {

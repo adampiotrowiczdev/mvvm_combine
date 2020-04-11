@@ -18,9 +18,9 @@ private struct Consts {
 class BeerCell: UITableViewCell {
     
     @objc var tapped: (()->())?
-    let label1 = UILabel()
-    let label2 = UILabel()
-    let label3 = UILabel()
+    let nameLabel = UILabel()
+    let descriptionLabel = UILabel()
+    let percentageLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,12 +38,12 @@ class BeerCell: UITableViewCell {
         let stack = UIStackView()
         stack.distribution = .fill
         stack.axis = .vertical
-        stack.addArrangedSubview(label1)
-        stack.addArrangedSubview(label2)
-        stack.addArrangedSubview(label3)
-        label1.textColor = UIColor.white
-        label2.textColor = UIColor.white
-        label3.textColor = UIColor.white
+        stack.addArrangedSubview(nameLabel)
+        stack.addArrangedSubview(descriptionLabel)
+        stack.addArrangedSubview(percentageLabel)
+        nameLabel.textColor = UIColor.white
+        descriptionLabel.textColor = UIColor.white
+        percentageLabel.textColor = UIColor.white
         stack.spacing = Consts.spacing
         stack.isUserInteractionEnabled = false
         container.addSubview(stack)
