@@ -35,14 +35,15 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         viewModel.fetchBeerNames()
-     }
-     
-     override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(animated)
-     }
-
+        super.viewWillAppear(animated)
+        viewModel.fetchBeerNames()
+        tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(floatingAddButton)
