@@ -69,7 +69,9 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     private func bindUI() {
         cancelBag.collect {
             viewModel.beerNames.sink( receiveValue: { value in
-                self.beerPicker.pickerData = value
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             })
             beerPicker.selectedValue.subscribe(viewModel.selectedBeer)
             viewModel.selectedBeer.sink(receiveValue: { value in
@@ -93,17 +95,17 @@ class BeerViewController: BaseViewController<BeerViewModel> {
 
 extension BeerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BaseViewModel.beers.count
+        return viewModel.beerNames.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath) as! BeerCell
-        let beer = BaseViewModel.beers[indexPath.row]
-        cell.nameLabel.text = beer.name
-        cell.descriptionLabel.text = beer.description
-        cell.percentageLabel.text = String(beer.alcoholPercentage) + "%"
+        let beer = viewModel.beerNames.value?[indexPath.row]
+        cell.nameLabel.text = beer?.name
+        cell.descriptionLabel.text = beer?.description
+        cell.percentageLabel.text = String(beer?.alcoholPercentage ?? 0.0) + "%"
         cell.tapped = { [weak self] in
-            self?.beerTapped(beer: beer)
+            self?.beerTapped(beer: beer!)
         }
         return cell
     }

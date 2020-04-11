@@ -10,15 +10,18 @@ import UIKit
 
 class BeerViewModel: BaseViewModel {
     
-    let beerNames = PassthroughSubject<[BeerModel], Never>()
+    let beerNames = CurrentValueSubject<[BeerModel]?, Never>(nil)
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
+    let networkService: NetworkService
+    
     
     required init() {
+        self.networkService = NetworkService()
         super.init()
     }
-        
+    
     func fetchBeerNames() {
-        beerNames.send(BaseViewModel.beers)
+        networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
     }
     
     func navigateToDescriptionView(viewController: UIViewController) {

@@ -35,6 +35,7 @@
 		8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D534C23A430E800F74278 /* BeerModel.swift */; };
 		8C3D534F23A4312000F74278 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D534E23A4312000F74278 /* DescriptionViewController.swift */; };
 		CE633D47239C51B400C7612D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE633D46239C51B400C7612D /* Toast.swift */; };
+		CE9002B42442423A00D8F8AC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9002B32442423900D8F8AC /* NetworkService.swift */; };
 		CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */; };
 		CEB73BE1239C5AD3002E34CA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		8C3D534C23A430E800F74278 /* BeerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
 		8C3D534E23A4312000F74278 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CE633D46239C51B400C7612D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		CE9002B32442423900D8F8AC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 		3FE5EC57239431720042C8AF /* mvvm_combine */ = {
 			isa = PBXGroup;
 			children = (
+				CE9002B2244241F100D8F8AC /* Network */,
 				CE633D45239C50B000C7612D /* Utils */,
 				CEB73BDD239C59FD002E34CA /* Base MVVM */,
 				3F3091392394450A00829EF7 /* Models */,
@@ -244,6 +247,14 @@
 				3F286F4D23B953960040DA39 /* CancelBag.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CE9002B2244241F100D8F8AC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE9002B32442423900D8F8AC /* NetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		CEB73BDD239C59FD002E34CA /* Base MVVM */ = {
@@ -439,6 +450,7 @@
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
+				CE9002B42442423A00D8F8AC /* NetworkService.swift in Sources */,
 				23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */,
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
 				23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */,
