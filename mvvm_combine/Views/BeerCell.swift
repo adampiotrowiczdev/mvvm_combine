@@ -32,12 +32,27 @@ class BeerCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        //FACTORY VIEW, ADDSUBVIEWS.....
         let container = UIControl()
         container.backgroundColor = R.color.gray()
         container.layer.cornerRadius = Consts.cornerRadius
+        
+        let horizontalStack = UIStackView()
+        horizontalStack.axis = .horizontal
+        horizontalStack.alignment = .fill
+        horizontalStack.distribution = .fill
+        horizontalStack.spacing = 16
+        
+        let beerCapImageView = UIImageView(image: R.image.beer_cap_50())
+        beerCapImageView.contentMode = .scaleAspectFit
+        beerCapImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         let stack = UIStackView()
         stack.distribution = .fill
+        stack.alignment = .fill
         stack.axis = .vertical
+        
         stack.addArrangedSubview(nameLabel)
         stack.addArrangedSubview(descriptionLabel)
         stack.addArrangedSubview(percentageLabel)
@@ -46,14 +61,22 @@ class BeerCell: UITableViewCell {
         percentageLabel.textColor = UIColor.white
         stack.spacing = Consts.spacing
         stack.isUserInteractionEnabled = false
-        container.addSubview(stack)
+        
+        
+        horizontalStack.addArrangedSubview(beerCapImageView)
+        horizontalStack.addArrangedSubview(stack)
+        
+        container.addSubview(horizontalStack)
         contentView.addSubview(container)
         selectionStyle = .none
         
         container.addTarget(self, action: #selector(cellTapped), for: .touchUpInside)
 
-        stack.snp.makeConstraints {
+        horizontalStack.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Consts.stackConstraintsInset)
+        }
+        beerCapImageView.snp.makeConstraints {
+            $0.width.equalTo(beerCapImageView.snp.height)
         }
         container.snp.makeConstraints {
             $0.trailing.leading.equalToSuperview().inset(Consts.containerCoinstraintsInset)
