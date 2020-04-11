@@ -44,24 +44,14 @@ class BeerViewController: BaseViewController<BeerViewModel> {
      }
 
     private func addSubviews() {
-        //view.addSubview(drinkButton)
-        //view.addSubview(beerTextField)
         view.addSubview(tableView)
         view.addSubview(floatingAddButton)
     }
     
     private func setUpConstraints() {
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
-//        beerTextField.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Consts.beetTextFieldTopOffset)
-//            $0.width.equalToSuperview()
-//        }
-//        drinkButton.snp.makeConstraints {
-//            $0.center.equalToSuperview()
-//        }
         floatingAddButton.snp.makeConstraints {
             $0.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(Consts.floatingButtonSize)
             $0.size.equalTo(Consts.floatingButtonSize)
@@ -70,9 +60,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
     
     private func configureViews() {
         isNavigationBarHidden = true
-        view.backgroundColor = R.color.gray()
+        view.backgroundColor = .white
         beerTextField.inputView = beerPicker
-        drinkButton.addTarget(self, action:#selector(drinkTapped), for: .touchUpInside)
         floatingAddButton.addTarget(self, action:#selector(addTapped), for: .touchUpInside)
     }
     
@@ -91,7 +80,8 @@ class BeerViewController: BaseViewController<BeerViewModel> {
         }
     }
     
-    @objc func drinkTapped(_ sender : UIButton) {
+    func beerTapped(beer: BeerModel) {
+        viewModel.selectedBeer.send(beer)
         viewModel.navigateToDescriptionView(viewController: self)
     }
     
@@ -107,9 +97,13 @@ extension BeerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath) as! BeerCell
-        cell.label1.text = BaseViewModel.beers[indexPath.row].name
-        cell.label2.text = BaseViewModel.beers[indexPath.row].description
-        cell.label3.text = "\(String(BaseViewModel.beers[indexPath.row].alcoholPercentage)) %"
+        let beer = BaseViewModel.beers[indexPath.row]
+        cell.label1.text = beer.name
+        cell.label2.text = beer.description
+        cell.label3.text = String(beer.alcoholPercentage) + "%"
+        cell.tapped = { [weak self] in
+            self?.beerTapped(beer: beer)
+        }
         return cell
     }
 }
@@ -157,6 +151,7 @@ private struct FactoryView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorColor = .white
         tableView.separatorStyle = .singleLine
+        tableView.allowsSelection = false
         return tableView
     }
 }

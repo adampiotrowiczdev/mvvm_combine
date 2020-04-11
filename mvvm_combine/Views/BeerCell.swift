@@ -17,24 +17,22 @@ private struct Consts {
 
 class BeerCell: UITableViewCell {
     
+    @objc var tapped: (()->())?
     let label1 = UILabel()
     let label2 = UILabel()
     let label3 = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let container = UIView()
+        let container = UIControl()
         container.backgroundColor = R.color.gray()
         container.layer.cornerRadius = Consts.cornerRadius
         let stack = UIStackView()
@@ -47,16 +45,24 @@ class BeerCell: UITableViewCell {
         label2.textColor = UIColor.white
         label3.textColor = UIColor.white
         stack.spacing = Consts.spacing
+        stack.isUserInteractionEnabled = false
         container.addSubview(stack)
         contentView.addSubview(container)
+        selectionStyle = .none
+        
+        container.addTarget(self, action: #selector(cellTapped), for: .touchUpInside)
 
         stack.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Consts.stackConstraintsInset)
-      }
+        }
         container.snp.makeConstraints {
             $0.trailing.leading.equalToSuperview().inset(Consts.containerCoinstraintsInset)
             $0.top.bottom.equalToSuperview().inset(Consts.containerTopBottConstr)
         }
+    }
+    
+    @objc func cellTapped() {
+        tapped?()
     }
     
     required init?(coder: NSCoder) {
