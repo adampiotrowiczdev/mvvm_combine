@@ -12,11 +12,11 @@ class BeerViewModel: BaseViewModel {
     
     let beerNames = CurrentValueSubject<[BeerModel]?, Never>(nil)
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
-    let networkService: NetworkService
+    let networkService: NetworkManager
     
     
     required init() {
-        self.networkService = NetworkService()
+        self.networkService = NetworkManager()
         super.init()
     }
     
