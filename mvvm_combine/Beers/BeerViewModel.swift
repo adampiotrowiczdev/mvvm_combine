@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  BeerViewModel.swift
 //  mvvm_combine
 //
 //  Created by apiotrowicz on 01/12/2019.

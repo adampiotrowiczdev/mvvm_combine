@@ -7,14 +7,10 @@
 
 import UIKit
 
-class UIStackView_Extension: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+extension UIStackView {
+    
+    func addArrangedSubviews(_ views: [UIView]) {
+        views.forEach { addArrangedSubview($0) }
     }
-    */
-
+    
 }

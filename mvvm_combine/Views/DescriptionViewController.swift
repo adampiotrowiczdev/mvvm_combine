@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class DescriptionViewController: BaseViewController<DescriptionViewModel> {
+class DescriptionViewController: BaseViewController<DescriptionViewModel, BaseView> {
     
     private struct Consts {
         static let percentageButtonWidthMultipliedBy = 0.45

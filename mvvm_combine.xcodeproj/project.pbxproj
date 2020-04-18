@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2321947F244B115C00781C6B /* BeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2321947E244B115C00781C6B /* BeersView.swift */; };
+		23219481244B13B100781C6B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23219480244B13B100781C6B /* BaseView.swift */; };
+		23219484244B2D7A00781C6B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23219483244B2D7A00781C6B /* UIStackView+Extension.swift */; };
 		23BD68892436514A004F264B /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD68882436514A004F264B /* AddingViewController.swift */; };
 		23BD688B2436550C004F264B /* AddingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD688A2436550C004F264B /* AddingViewModel.swift */; };
 		23BD688D24408DAE004F264B /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD688C24408DAE004F264B /* BeerCell.swift */; };
@@ -73,6 +76,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2321947E244B115C00781C6B /* BeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersView.swift; sourceTree = "<group>"; };
+		23219480244B13B100781C6B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		23219483244B2D7A00781C6B /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		23BD68882436514A004F264B /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		23BD688A2436550C004F264B /* AddingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewModel.swift; sourceTree = "<group>"; };
 		23BD688C24408DAE004F264B /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
@@ -136,6 +142,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2321947B244B104500781C6B /* Beers */ = {
+			isa = PBXGroup;
+			children = (
+				3F30913E2394457E00829EF7 /* BeerViewModel.swift */,
+				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
+				2321947E244B115C00781C6B /* BeersView.swift */,
+				23BD688C24408DAE004F264B /* BeerCell.swift */,
+			);
+			path = Beers;
+			sourceTree = "<group>";
+		};
+		23219482244B2D3100781C6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23219483244B2D7A00781C6B /* UIStackView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3F3091392394450A00829EF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,10 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
-				3FECC5512395B44B000567D0 /* BeerViewController.swift */,
 				23BD68882436514A004F264B /* AddingViewController.swift */,
 				23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */,
-				23BD688C24408DAE004F264B /* BeerCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,7 +182,6 @@
 		3F30913B2394452500829EF7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				3F30913E2394457E00829EF7 /* BeerViewModel.swift */,
 				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
 				23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */,
 				23BD688A2436550C004F264B /* AddingViewModel.swift */,
@@ -193,9 +215,11 @@
 		3FE5EC57239431720042C8AF /* mvvm_combine */ = {
 			isa = PBXGroup;
 			children = (
+				23219482244B2D3100781C6B /* Extensions */,
 				CE633D45239C50B000C7612D /* Utils */,
 				CEB73BDD239C59FD002E34CA /* Base MVVM */,
 				3F3091392394450A00829EF7 /* Models */,
+				2321947B244B104500781C6B /* Beers */,
 				3F30913A2394451900829EF7 /* Views */,
 				3F30913B2394452500829EF7 /* ViewModels */,
 				3FE5EC61239431720042C8AF /* mvvm_combine.xcdatamodeld */,
@@ -251,6 +275,7 @@
 			children = (
 				CEB73BDE239C5ABE002E34CA /* BaseViewController.swift */,
 				CEB73BE0239C5AD3002E34CA /* BaseViewModel.swift */,
+				23219480244B13B100781C6B /* BaseView.swift */,
 			);
 			path = "Base MVVM";
 			sourceTree = "<group>";
@@ -439,6 +464,7 @@
 				3F30913F2394457E00829EF7 /* BeerViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,
 				3FE5EC59239431720042C8AF /* AppDelegate.swift in Sources */,
+				2321947F244B115C00781C6B /* BeersView.swift in Sources */,
 				23CC08BD23C64246003F2DE2 /* AlcoholPercentageViewModel.swift in Sources */,
 				3FE5EC63239431720042C8AF /* mvvm_combine.xcdatamodeld in Sources */,
 				23CC08BB23C6422A003F2DE2 /* AlcoholPercentageViewController.swift in Sources */,
@@ -446,8 +472,10 @@
 				CEB73BDF239C5ABE002E34CA /* BaseViewController.swift in Sources */,
 				8C0239B423B7CD1E00DC27BC /* DescriptionViewModel.swift in Sources */,
 				3FECC55A2395BD71000567D0 /* SceneDelegate.swift in Sources */,
+				23219481244B13B100781C6B /* BaseView.swift in Sources */,
 				3F286F4E23B953960040DA39 /* CancelBag.swift in Sources */,
 				CE633D47239C51B400C7612D /* Toast.swift in Sources */,
+				23219484244B2D7A00781C6B /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

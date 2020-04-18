@@ -8,9 +8,9 @@
 import UIKit
 import Combine
 
-class BaseViewController<T:BaseViewModel>: UIViewController {
+class BaseViewController<VMType:BaseViewModel, VType: BaseView>: UIViewController {
 
-    init(_ viewModel: T = T()) {
+    init(_ viewModel: VMType = VMType()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,7 +19,8 @@ class BaseViewController<T:BaseViewModel>: UIViewController {
         return nil
     }
     
-    var viewModel: T
+    var viewModel: VMType
+    var viewCasted: VType = VType()
     var cancelBag = Set<AnyCancellable>()
     var isNavigationBarHidden: Bool = false
         

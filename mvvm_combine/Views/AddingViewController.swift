@@ -13,7 +13,7 @@ private struct Consts {
     static let stackViewSpacing : CGFloat = 20
 }
 
-class AddingViewController: BaseViewController<AddingViewModel> {
+class AddingViewController: BaseViewController<AddingViewModel, BaseView> {
     
     private let nameTextField = FactoryView.nameTextField
     private let stackView = FactoryView.stackView
