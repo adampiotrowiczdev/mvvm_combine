@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-class BeerViewModel: BaseViewModel {
+class BeersViewModel: BaseViewModel {
     
     let beerNames = PassthroughSubject<[BeerModel], Never>()
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)

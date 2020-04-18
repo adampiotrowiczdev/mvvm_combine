@@ -5,7 +5,7 @@
 //  Created by Jakub Andruszak on 13/12/2019.
 //
 
-struct BeerModel {
+struct BeerModel: Hashable {
     let name: String
     let description: String
     let alcoholPercentage: Double

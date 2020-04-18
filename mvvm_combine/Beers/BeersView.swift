@@ -11,6 +11,7 @@ private struct Consts {
     static let beerTextFieldFontSize: CGFloat = 20
     static let beetTextFieldTopOffset: CGFloat = 50
     static let floatingButtonSize: CGFloat = 50
+    static let floatingButtonPlusSize: CGFloat = 30
     static let floatingButtonFontSize: CGFloat = 30
     static let toastShowingTime: Double = 1
 }
@@ -75,15 +76,17 @@ private struct FactoryView {
         return textField
     }
     
-    static var floatingAddButton: UIButton {
-        let button = UIButton()
-        button.contentHorizontalAlignment = .center;
-        button.titleLabel?.font = button.titleLabel?.font.withSize(Consts.floatingButtonFontSize)
-        button.setTitleColor(R.color.gray(), for: .normal)
-        button.setTitle("+", for: .normal)
-        button.backgroundColor = .white
-        button.layer.cornerRadius = Consts.floatingButtonSize/2
-        return button
+    static var floatingAddButton: UIControl {
+        let control = UIControl()
+        control.backgroundColor = .white
+        control.layer.cornerRadius = Consts.floatingButtonSize * 0.5
+        let imageView = UIImageView(image: R.image.plus()?.withTintColor(R.color.gray()!))
+        control.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(Consts.floatingButtonPlusSize)
+        }
+        return control
     }
     
     static var beerTableView: UITableView {
