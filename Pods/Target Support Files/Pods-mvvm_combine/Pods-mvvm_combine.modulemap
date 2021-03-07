@@ -1,0 +1,6 @@
+framework module Pods_mvvm_combine {
+  umbrella header "Pods-mvvm_combine-umbrella.h"
+
+  export *
+  module * { export * }
+}
