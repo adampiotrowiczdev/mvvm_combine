@@ -23,6 +23,10 @@ class BaseViewController<VMType:BaseViewModel, VType: BaseView>: UIViewControlle
     var viewCasted: VType = VType()
     var cancelBag = Set<AnyCancellable>()
     var isNavigationBarHidden: Bool = false
+
+    override func loadView() {
+        view = viewCasted
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()

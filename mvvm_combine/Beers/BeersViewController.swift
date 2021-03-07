@@ -19,10 +19,6 @@ class BeersViewController: BaseViewController<BeersViewModel, BeersView> {
         configureViews()
     }
     
-    override func loadView() {
-        view = viewCasted
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.fetchBeerNames()
