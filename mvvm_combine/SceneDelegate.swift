@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: BeerViewController())
+        window?.rootViewController = UINavigationController(rootViewController: BeersViewController())
         window?.makeKeyAndVisible()
     }
 

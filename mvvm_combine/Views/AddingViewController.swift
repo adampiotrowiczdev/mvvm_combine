@@ -9,11 +9,11 @@ import UIKit
 import Combine
 
 private struct Consts {
-    static let stackViewConstraints : CGFloat = 25
-    static let stackViewSpacing : CGFloat = 20
+    static let stackViewConstraints: CGFloat = 25
+    static let stackViewSpacing: CGFloat = 20
 }
 
-class AddingViewController: BaseViewController<AddingViewModel> {
+class AddingViewController: BaseViewController<AddingViewModel, BaseView> {
     
     private let nameTextField = FactoryView.nameTextField
     private let stackView = FactoryView.stackView
@@ -57,7 +57,7 @@ class AddingViewController: BaseViewController<AddingViewModel> {
     }
     
     @objc func addTapped(_ sender : UIButton) {
-        BeerViewModel.beers.append(BeerModel(name: nameTextField.text ?? "test1", description: descriptionTextField.text ?? "test2", alcoholPercentage: Double(percentageTextField.text ?? "0.0") ?? 0.0))
+        BeersViewModel.beers.append(BeerModel(name: nameTextField.text ?? "test1", description: descriptionTextField.text ?? "test2", alcoholPercentage: Double(percentageTextField.text ?? "0.0") ?? 0.0))
         viewModel.navigateToBeerView(viewController: self)
     }
     

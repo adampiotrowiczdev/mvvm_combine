@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  BeerViewModel.swift
 //  mvvm_combine
 //
 //  Created by apiotrowicz on 01/12/2019.
@@ -8,9 +8,10 @@
 import Combine
 import UIKit
 
-class BeerViewModel: BaseViewModel {
+class BeersViewModel: BaseViewModel {
     
-    let beerNames = CurrentValueSubject<[BeerModel]?, Never>(nil)
+    let beerNames = PassthroughSubject<[BeerModel], Never>()
+    //let beerNames = CurrentValueSubject<[BeerModel]?, Never>(nil)
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
     let networkService: NetworkManager
     
@@ -21,6 +22,7 @@ class BeerViewModel: BaseViewModel {
     }
     
     func fetchBeerNames() {
+        //beerNames.send(BaseViewModel.beers)
         networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
     }
     

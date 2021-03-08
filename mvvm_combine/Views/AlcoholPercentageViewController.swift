@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class AlcoholPercentageViewController: BaseViewController<AlcoholPercentageViewModel> {
+class AlcoholPercentageViewController: BaseViewController<AlcoholPercentageViewModel, BaseView> {
     
     private let percentageTextField = FactoryView.percentageTextField
     
