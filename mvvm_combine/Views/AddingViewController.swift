@@ -57,7 +57,10 @@ class AddingViewController: BaseViewController<AddingViewModel, BaseView> {
     }
     
     @objc func addTapped(_ sender : UIButton) {
-        BeersViewModel.beers.append(BeerModel(name: nameTextField.text ?? "test1", description: descriptionTextField.text ?? "test2", alcoholPercentage: Double(percentageTextField.text ?? "0.0") ?? 0.0))
+        let beer = BeerModel(name: nameTextField.text ?? "test1",
+                             description: descriptionTextField.text ?? "test2",
+                             alcoholPercentage: Double(percentageTextField.text ?? "0.0") ?? 0.0)
+        viewModel.newBeerSubject.send(beer)
         viewModel.navigateToBeerView(viewController: self)
     }
     

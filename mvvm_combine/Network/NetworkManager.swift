@@ -14,7 +14,7 @@ class NetworkManager {
         case statusCode(String?)
     }
     
-    func fetch<T:Codable>(url: String, subject: CurrentValueSubject<T?, Never>) {
+    func fetch<T:Codable>(url: String, subject: CurrentValueSubject<T, Never>) {
         guard let url = URL(string: url) else { return }
         subscription = URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { data, _ in
@@ -25,8 +25,10 @@ class NetworkManager {
               print("Retrieving data failed with error \(err)")
             }
           }, receiveValue: { object in
-            subject.send(object)
-            print("Retrieved object \(object)")
+            DispatchQueue.main.async {
+                subject.send(object)
+                print("Retrieved object \(object)")
+            }
         })
     }
     

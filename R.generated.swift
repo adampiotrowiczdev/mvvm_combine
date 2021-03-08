@@ -144,29 +144,33 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 1 files.
-  struct file {
-    /// Resource file `Cartfile`.
-    static let cartfile = Rswift.FileResource(bundle: R.hostingBundle, name: "Cartfile", pathExtension: "")
-
-    /// `bundle.url(forResource: "Cartfile", withExtension: "")`
-    static func cartfile(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.cartfile
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    fileprivate init() {}
-  }
-
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `beer_cap_50`.
+    static let beer_cap_50 = Rswift.ImageResource(bundle: R.hostingBundle, name: "beer_cap_50")
     /// Image `beer_cap`.
     static let beer_cap = Rswift.ImageResource(bundle: R.hostingBundle, name: "beer_cap")
+    /// Image `plus`.
+    static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "beer_cap", bundle: ..., traitCollection: ...)`
     static func beer_cap(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.beer_cap, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "beer_cap_50", bundle: ..., traitCollection: ...)`
+    static func beer_cap_50(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.beer_cap_50, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "plus", bundle: ..., traitCollection: ...)`
+    static func plus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plus, compatibleWith: traitCollection)
     }
     #endif
 
