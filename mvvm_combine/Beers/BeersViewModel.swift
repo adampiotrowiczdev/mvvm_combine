@@ -8,10 +8,22 @@
 import Combine
 import UIKit
 
+struct RestaurantModel: Codable {
+    let restaurantID: Int
+    let name: String
+
+    enum CodingKeys: String, CodingKey {
+        case restaurantID = "restaurantId"
+        case name
+    }
+}
+
+
 class BeersViewModel: BaseViewModel {
 
     let newBeerSubject = PassthroughSubject<BeerModel, Never>()
     let beerNames = CurrentValueSubject<[BeerModel], Never>([])
+    let restaurants = CurrentValueSubject<[RestaurantModel], Never>([])
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
     let networkService: NetworkManager
     var cancelBag = CancelBag()
@@ -26,11 +38,53 @@ class BeersViewModel: BaseViewModel {
         }.store(in: &cancelBag)
     }
     
-    func fetchBeerNames() {
-        //beerNames.send(BaseViewModel.beers)
-        networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
+    override func viewDidAppear() {
+        fetchBeerNames()
+        fetchRestaurants()
     }
     
+    private func fetchRestaurants() {
+        //beerNames.send(BaseViewModel.beers)
+        //networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
+        if let url = URL(string: "https://restaurantdotnetapi.herokuapp.com/restaurants") {
+            let task = URLSession.shared.dataTask(with: url) { [weak self] (data, urlResponse, error) in
+                if let data = data {
+                    do {
+                        let object = try JSONDecoder().decode([RestaurantModel].self, from: data)
+                        DispatchQueue.main.async {
+                            self?.restaurants.send(object)
+                            print(object)
+                        }
+                    } catch let error {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    private func fetchBeerNames() {
+        //beerNames.send(BaseViewModel.beers)
+        //networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
+        if let url = URL(string: "https://beersapi.herokuapp.com/beers") {
+            let task = URLSession.shared.dataTask(with: url) { [weak self] (data, urlResponse, error) in
+                if let data = data {
+                    do {
+                        let object = try JSONDecoder().decode([BeerModel].self, from: data)
+                        DispatchQueue.main.async {
+                            self?.beerNames.send(object)
+                        }
+                    } catch let error {
+                        print(error)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+
     func navigateToDescriptionView(viewController: UIViewController) {
         guard let parameter = selectedBeer.value else { return }
         let descriptionViewModel = DescriptionViewModel(parameter)

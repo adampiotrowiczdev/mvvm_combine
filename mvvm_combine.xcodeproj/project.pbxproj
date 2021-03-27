@@ -11,6 +11,7 @@
 		23219481244B13B100781C6B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23219480244B13B100781C6B /* BaseView.swift */; };
 		23219484244B2D7A00781C6B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23219483244B2D7A00781C6B /* UIStackView+Extension.swift */; };
 		23478B80244B431E003A075F /* CombineDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 23478B7F244B431E003A075F /* CombineDataSources */; };
+		237B335226028D1F0067B40C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B335126028D1F0067B40C /* DescriptionView.swift */; };
 		23BD68892436514A004F264B /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD68882436514A004F264B /* AddingViewController.swift */; };
 		23BD688B2436550C004F264B /* AddingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD688A2436550C004F264B /* AddingViewModel.swift */; };
 		23BD688D24408DAE004F264B /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BD688C24408DAE004F264B /* BeerCell.swift */; };
@@ -60,6 +61,7 @@
 		2321947E244B115C00781C6B /* BeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersView.swift; sourceTree = "<group>"; };
 		23219480244B13B100781C6B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		23219483244B2D7A00781C6B /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		237B335126028D1F0067B40C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		23BD68882436514A004F264B /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		23BD688A2436550C004F264B /* AddingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewModel.swift; sourceTree = "<group>"; };
 		23BD688C24408DAE004F264B /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerCell.swift; path = ../Views/BeerCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		237B335026028C500067B40C /* BeerDescription */ = {
+			isa = PBXGroup;
+			children = (
+				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
+				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
+				237B335126028D1F0067B40C /* DescriptionView.swift */,
+			);
+			path = BeerDescription;
+			sourceTree = "<group>";
+		};
 		3F3091392394450A00829EF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +175,6 @@
 		3F30913A2394451900829EF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C3D534E23A4312000F74278 /* DescriptionViewController.swift */,
 				23BD68882436514A004F264B /* AddingViewController.swift */,
 				23CC08BA23C6422A003F2DE2 /* AlcoholPercentageViewController.swift */,
 			);
@@ -173,7 +184,6 @@
 		3F30913B2394452500829EF7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8C0239B323B7CD1E00DC27BC /* DescriptionViewModel.swift */,
 				23CC08BC23C64245003F2DE2 /* AlcoholPercentageViewModel.swift */,
 				23BD688A2436550C004F264B /* AddingViewModel.swift */,
 			);
@@ -211,6 +221,7 @@
 				CE633D45239C50B000C7612D /* Utils */,
 				CEB73BDD239C59FD002E34CA /* Base MVVM */,
 				3F3091392394450A00829EF7 /* Models */,
+				237B335026028C500067B40C /* BeerDescription */,
 				2321947B244B104500781C6B /* Beers */,
 				3F30913A2394451900829EF7 /* Views */,
 				3F30913B2394452500829EF7 /* ViewModels */,
@@ -486,6 +497,7 @@
 				23BD688D24408DAE004F264B /* BeerCell.swift in Sources */,
 				23BD68892436514A004F264B /* AddingViewController.swift in Sources */,
 				23BD688B2436550C004F264B /* AddingViewModel.swift in Sources */,
+				237B335226028D1F0067B40C /* DescriptionView.swift in Sources */,
 				8C3D534D23A430E800F74278 /* BeerModel.swift in Sources */,
 				3F30913F2394457E00829EF7 /* BeersViewModel.swift in Sources */,
 				3FECC5582395BBDD000567D0 /* R.generated.swift in Sources */,

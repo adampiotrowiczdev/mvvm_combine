@@ -17,15 +17,6 @@ class BeersViewController: BaseViewController<BeersViewModel, BeersView> {
         super.viewDidLoad()
         bindUI()
         configureViews()
-        viewModel.fetchBeerNames()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
     }
     
     private func configureViews() {
