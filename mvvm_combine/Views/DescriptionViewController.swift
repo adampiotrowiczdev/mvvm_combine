@@ -19,14 +19,15 @@ class DescriptionViewController: BaseViewController<DescriptionViewModel, BaseVi
     private let desctriptionTextField = FactoryView.descriptionTextField
     private let percentageButton = FactoryView.percentageButton
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.view.backgroundColor = .systemOrange
         addSubviews()
         setUpConstraints()
         configureViews()
         bindUI()
     }
+    
     
     private func addSubviews() {
         view.addSubview(desctriptionTextField)
