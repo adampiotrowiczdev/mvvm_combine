@@ -12,16 +12,16 @@ import CombineDataSources
 
 
 class BeersViewController: BaseViewController<BeersViewModel, BeersView> {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
         configureViews()
+        viewModel.fetchBeerNames()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchBeerNames()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

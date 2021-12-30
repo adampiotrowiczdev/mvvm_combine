@@ -10,6 +10,6 @@ target 'mvvm_combine' do
   pod 'Alamofire'
   pod 'R.swift'
   pod 'SnapKit'
-
+  pod 'Bagel', '~>  1.4.0'
 	
 end

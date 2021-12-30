@@ -9,16 +9,26 @@ import Combine
 import UIKit
 
 class BeersViewModel: BaseViewModel {
-    
-    let beerNames = PassthroughSubject<[BeerModel], Never>()
+
+    let newBeerSubject = PassthroughSubject<BeerModel, Never>()
+    let beerNames = CurrentValueSubject<[BeerModel], Never>([])
     var selectedBeer = CurrentValueSubject<BeerModel?, Never>(nil)
+    let networkService: NetworkManager
+    var cancelBag = CancelBag()
     
     required init() {
+        self.networkService = NetworkManager()
         super.init()
+        newBeerSubject.sink { [weak self] beer in
+            guard let self = self else { return }
+            self.beerNames.value.append(beer)
+            self.beerNames.send(self.beerNames.value)
+        }.store(in: &cancelBag)
     }
-        
+    
     func fetchBeerNames() {
-        beerNames.send(BaseViewModel.beers)
+        //beerNames.send(BaseViewModel.beers)
+        networkService.fetch(url: "https://beersapi.herokuapp.com/beers", subject: beerNames)
     }
     
     func navigateToDescriptionView(viewController: UIViewController) {
@@ -29,7 +39,7 @@ class BeersViewModel: BaseViewModel {
     }
     
     func navigateToAddingView(viewController: UIViewController) {
-        let addingViewModel = AddingViewModel()
+        let addingViewModel = AddingViewModel(newBeerSubject: newBeerSubject)
         let addingViewController = AddingViewController(addingViewModel)
         viewController.navigationController?.pushViewController(addingViewController, animated: true)
     }
