@@ -11,5 +11,6 @@ target 'mvvm_combine' do
   pod 'R.swift'
   pod 'SnapKit'
   pod 'Bagel', '~>  1.4.0'
-	
+  pod 'LoremIpsum', '~> 1.0'
+  
 end

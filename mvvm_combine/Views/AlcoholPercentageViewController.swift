@@ -110,7 +110,6 @@ class AlcoholPercentageViewController: BaseViewController<AlcoholPercentageViewM
     private struct FactoryView {
         static var scrollView: UIScrollView {
             let scrollView = UIScrollView()
-            scrollView.addSubview(stackView)
             scrollView.translatesAutoresizingMaskIntoConstraints = false
             return scrollView
         }
